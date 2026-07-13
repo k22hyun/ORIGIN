@@ -5046,9 +5046,78 @@ const CSV_STRUCTURE = [
   _S('// 09 그림자연맹'),
 ];
 
+// ── GitHub 자동 배포 (선택 사항) ──
+// 저장 버튼을 눌렀을 때 GitHub Pages 저장소에 직접 반영할 수 있도록 하는 기능.
+// 토큰은 이 브라우저의 localStorage에만 저장되며, 공유되는 이 HTML 파일 자체에는
+// 절대 포함되지 않는다 — 따라서 다른 방문자가 저장 버튼을 눌러도 토큰을 설정한
+// 본인이 아니면 아무 일도 일어나지 않는다 (기존 로컬 파일 저장으로 대체됨).
+const GITHUB_OWNER  = 'k22hyun';
+const GITHUB_REPO   = 'ORIGIN';
+const GITHUB_PATH   = 'story_collection/index.html';
+const GITHUB_BRANCH = 'main';
+const GITHUB_API = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_PATH}`;
+
+function getGithubToken() { return localStorage.getItem('ghPushToken') || ''; }
+function setGithubToken(t) {
+  if (t) localStorage.setItem('ghPushToken', t);
+  else localStorage.removeItem('ghPushToken');
+}
+
+function utf8ToBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let binary = '';
+  bytes.forEach(b => { binary += String.fromCharCode(b); });
+  return btoa(binary);
+}
+
+async function configureGithubPush() {
+  const cur = getGithubToken();
+  const msg = cur
+    ? 'GitHub 자동 배포가 연결되어 있습니다.\n새 토큰으로 교체하려면 입력 후 확인, 연결을 끊으려면 비운 채로 확인을 누르세요.'
+    : 'GitHub Personal Access Token을 입력하세요.\n(github.com → Settings → Developer settings → Fine-grained tokens\n→ 저장소를 ' + GITHUB_OWNER + '/' + GITHUB_REPO + ' 하나로 지정하고 Contents: Read and write 권한만 부여해서 생성)\n\n토큰은 이 브라우저에만 저장되고 파일에는 절대 저장되지 않습니다.';
+  const input = prompt(msg, '');
+  if (input === null) return; // 취소
+  const token = input.trim();
+  setGithubToken(token);
+  if (!token) { alert('GitHub 자동 배포 연결을 해제했습니다. 이제 저장 버튼은 로컬 파일로 저장합니다.'); return; }
+  try {
+    const r = await fetch(`${GITHUB_API}?ref=${GITHUB_BRANCH}`, {
+      headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' }
+    });
+    if (r.ok) alert('연결 확인 완료! 이제 저장 버튼을 누르면 GitHub에 바로 반영됩니다 (약 30~60초 후 사이트에 적용).');
+    else alert('토큰은 저장했지만 확인에 실패했습니다 (' + r.status + '). 저장소 이름과 토큰 권한을 다시 확인하세요.');
+  } catch(e) {
+    alert('연결 확인 중 오류: ' + e.message);
+  }
+}
+
+async function pushToGithub(html) {
+  const token = getGithubToken();
+  const headers = { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' };
+  const getRes = await fetch(`${GITHUB_API}?ref=${GITHUB_BRANCH}`, { headers });
+  if (!getRes.ok) throw new Error('현재 파일 정보를 가져오지 못했습니다 (' + getRes.status + '). 토큰 권한을 확인하세요.');
+  const cur = await getRes.json();
+  const putRes = await fetch(GITHUB_API, {
+    method: 'PUT',
+    headers: Object.assign({ 'Content-Type': 'application/json' }, headers),
+    body: JSON.stringify({
+      message: '사이트 업데이트 (저장 버튼)',
+      content: utf8ToBase64(html),
+      sha: cur.sha,
+      branch: GITHUB_BRANCH,
+    }),
+  });
+  if (!putRes.ok) {
+    const err = await putRes.json().catch(() => ({}));
+    throw new Error('업로드 실패 (' + putRes.status + '): ' + (err.message || ''));
+  }
+}
+
 // ── HTML 저장 (현재 상태 내장) ──
-// 파일 저장 위치를 기억해 두 번째 저장부터는 다시 묻지 않고 같은 파일에 덮어쓴다
-// (브라우저가 File System Access API를 지원하지 않으면 기존 다운로드 방식으로 대체)
+// GitHub 토큰이 연결되어 있으면 저장 시 GitHub에 직접 반영한다.
+// 연결되어 있지 않으면 기존 방식대로 로컬 파일에 저장한다 (파일 저장 위치를
+// 기억해 두 번째 저장부터는 다시 묻지 않고 같은 파일에 덮어씀; File System
+// Access API 미지원 브라우저에서는 다운로드 방식으로 대체).
 let __savedFileHandle = null;
 async function saveToHtml() {
   const state = {
@@ -5062,13 +5131,24 @@ async function saveToHtml() {
     defs:    COND_PCT_DEFAULTS,
     version: CAND_DATA_VERSION,
   };
-  try {
-    // document.documentElement.outerHTML 는 file:// / http:// 모두 동작
-    let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-    const marker = /const __SAVED_STATE__ = .*?; \/\/ SAVED_STATE_MARKER/;
-    if (!marker.test(html)) throw new Error('마커 없음 — 소스가 예상과 다릅니다');
-    html = html.replace(marker, `const __SAVED_STATE__ = ${JSON.stringify(state)}; // SAVED_STATE_MARKER`);
+  // document.documentElement.outerHTML 는 file:// / http:// 모두 동작
+  let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  const marker = /const __SAVED_STATE__ = .*?; \/\/ SAVED_STATE_MARKER/;
+  if (!marker.test(html)) { alert('저장 실패: 마커 없음 — 소스가 예상과 다릅니다'); return; }
+  html = html.replace(marker, `const __SAVED_STATE__ = ${JSON.stringify(state)}; // SAVED_STATE_MARKER`);
 
+  if (getGithubToken()) {
+    try {
+      await pushToGithub(html);
+      alert('GitHub에 배포되었습니다. 약 30~60초 후 사이트에 반영됩니다.');
+      return;
+    } catch(e) {
+      alert('GitHub 배포 실패: ' + e.message + '\n대신 로컬 파일로 저장합니다.');
+      // 아래 로컬 저장으로 계속 진행
+    }
+  }
+
+  try {
     if (window.showSaveFilePicker) {
       if (!__savedFileHandle) {
         __savedFileHandle = await window.showSaveFilePicker({
@@ -5299,7 +5379,8 @@ function renderPlanTabs() {
     `<button class="plan-tab-add" onclick="addPlan()">+ 새 안</button>` +
     `<div class="plan-tab-bar-actions">
       <button class="btn-tab-bar-act btn-tab-csv" onclick="exportCollectionCSV()">CSV 내보내기</button>
-      <button class="btn-tab-bar-act btn-tab-save" onclick="saveToHtml()">저장</button>
+      <button class="btn-tab-bar-act btn-tab-save" onclick="saveToHtml()" title="${getGithubToken() ? 'GitHub에 바로 배포됩니다' : '로컬 파일로 저장됩니다'}">저장${getGithubToken() ? ' 🔗' : ''}</button>
+      <button class="btn-tab-bar-act" onclick="configureGithubPush()" title="GitHub 자동 배포 연결/해제" style="background:rgba(120,120,120,.2);border:1px solid rgba(120,120,120,.4)">⚙ GitHub</button>
     </div>`;
 }
 
@@ -6742,6 +6823,9 @@ function clearCandExclAll() {
 // CANDIDATES/CAND_EDITS/CAND_EXCLUDED 정의 완료 후 condBars 재렌더 (신규 수집품 조건 반영)
 renderCondBars();
 updateSimSubTabBadges();
+// planTabBar는 사용자가 시안을 조작하기 전까지 갱신되지 않아 저장 버튼이 구버전
+// 스냅샷(GitHub 연결 버튼 없는 버전 등)으로 남을 수 있으므로 여기서 즉시 갱신한다
+renderPlanTabs();
 // page2(드랍 시뮬레이터)가 기본 활성 페이지라 switchPage(2)가 호출되지 않으므로 여기서 직접 초기화
 if (!cutFiltersInit) { initCutFilters(); cutFiltersInit = true; }
 // simPanelAlways(확정 드랍 수집품)가 기본 활성 서브탭이라 switchSimTab('always')가 호출되지
