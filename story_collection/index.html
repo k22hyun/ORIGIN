@@ -208,42 +208,8 @@
 
   .no-data { text-align: center; padding: 40px; color: #aaa; font-size: 14px; }
 
-  /* ── 드랍 시뮬레이터 – 안 탭 ── */
-  .plan-tab-bar {
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-    background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 100%);
-    border-radius: 14px; padding: 14px 20px; margin-bottom: 20px;
-    box-shadow: 0 4px 20px rgba(74,20,140,.35);
-  }
-  .plan-tab-bar-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.45);
-    letter-spacing: .07em; text-transform: uppercase; margin-right: 2px; }
-  .plan-tab {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 9px 16px; border-radius: 9px; cursor: pointer;
-    font-size: 14px; font-weight: 700; color: rgba(255,255,255,.65);
-    border: 1.5px solid rgba(255,255,255,.2); background: rgba(255,255,255,.08);
-    transition: all .15s;
-  }
-  .plan-tab:hover { color: #fff; background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.38); }
-  .plan-tab.active { color: #4a148c; background: #fff; border-color: transparent;
-    box-shadow: 0 2px 10px rgba(0,0,0,.18); }
-  .plan-tab-name { outline: none; border: none; background: transparent;
-    font-size: 14px; font-weight: 700; color: inherit; cursor: pointer; font-family: inherit;
-    min-width: 20px; max-width: 80px; padding: 0; }
-  .plan-tab.active .plan-tab-name { color: #4a148c; }
-  .plan-tab-badge { font-size: 11px; padding: 2px 7px; border-radius: 10px; font-weight: 600;
-    background: rgba(255,255,255,.15); color: rgba(255,255,255,.75); white-space: nowrap; }
-  .plan-tab.active .plan-tab-badge { background: #e8f5e9; color: #2e7d32; }
-  .plan-tab.active .plan-tab-badge.has-cut { background: #fff3e0; color: #e65100; }
-  .plan-tab-del { background: none; border: none; cursor: pointer; color: rgba(255,255,255,.35);
-    font-size: 16px; padding: 0; line-height: 1; display: flex; align-items: center; }
-  .plan-tab.active .plan-tab-del { color: #bbb; }
-  .plan-tab-del:hover { color: #ef5350 !important; }
-  .plan-tab-add { padding: 9px 16px; border-radius: 9px; cursor: pointer; font-size: 13px;
-    color: rgba(255,255,255,.6); background: none; border: 1.5px dashed rgba(255,255,255,.3);
-    font-family: inherit; transition: all .15s; font-weight: 600; }
-  .plan-tab-add:hover { color: #fff; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.55); }
-  .plan-tab-bar-actions { margin-left: auto; display: flex; gap: 6px; align-items: center; padding-left: 12px; border-left: 1px solid rgba(255,255,255,.2); }
+  /* ── 헤더 우측 저장/배포 액션 바 ── */
+  .plan-tab-bar-actions { display: flex; gap: 6px; align-items: center; margin-left: auto; flex-wrap: wrap; }
   .btn-tab-bar-act { padding: 6px 13px; border-radius: 7px; font-size: 12px; font-weight: 600;
     cursor: pointer; font-family: inherit; transition: all .15s; white-space: nowrap; }
   .btn-tab-csv { background: rgba(255,255,255,.12); color: rgba(255,255,255,.85); border: 1px solid rgba(255,255,255,.25); }
@@ -552,6 +518,9 @@
         <span class="src-chip">[오리진] Localization</span>
       </div>
     </div>
+    <div class="plan-tab-bar-actions" id="topActionBar"><button class="btn-tab-bar-act btn-tab-csv" onclick="exportCollectionCSV()">CSV 내보내기</button>
+    <button class="btn-tab-bar-act btn-tab-save" onclick="saveToHtml()" title="GitHub에 바로 배포됩니다">저장 🔗</button>
+    <button class="btn-tab-bar-act" onclick="configureGithubPush()" title="GitHub 자동 배포 연결/해제" style="background:rgba(120,120,120,.2);border:1px solid rgba(120,120,120,.4)">⚙ GitHub</button></div>
   </div>
 </div>
 
@@ -2857,17 +2826,6 @@
 <div id="page2" class="page-section active">
 <div class="container">
 
-  <!-- 안 탭 바 -->
-  <div class="page-sec-label">시안 생성/선택</div>
-  <div class="plan-tab-bar" id="planTabBar"><span class="plan-tab-bar-label">안 선택</span><div class="plan-tab active" onclick="switchPlan(1)">
-        <input class="plan-tab-name" id="planTabName_1" value="1안" onclick="event.stopPropagation()" ondblclick="event.stopPropagation();this.select()" onblur="finishRenamePlan(1,this)" onkeydown="if(event.key==='Enter')this.blur()">
-        <span class="plan-tab-badge has-cut">▼14 ▲191개</span>
-        
-      </div><button class="plan-tab-add" onclick="addPlan()">+ 새 안</button><div class="plan-tab-bar-actions">
-      <button class="btn-tab-bar-act btn-tab-csv" onclick="exportCollectionCSV()">CSV 내보내기</button>
-      <button class="btn-tab-bar-act btn-tab-save" onclick="saveToHtml()" title="GitHub에 바로 배포됩니다">저장 🔗</button>
-      <button class="btn-tab-bar-act" onclick="configureGithubPush()" title="GitHub 자동 배포 연결/해제" style="background:rgba(120,120,120,.2);border:1px solid rgba(120,120,120,.4)">⚙ GitHub</button>
-    </div></div>
 
   <!-- 분할 레이아웃: 요약(왼쪽 sticky) + 전체 목록(오른쪽) -->
   <div class="sim-split-layout">
@@ -7224,64 +7182,11 @@ function getActivePlan() {
   return plan;
 }
 
-function addPlan() {
-  const name = (plans.length + 1) + '안';
-  plans.push({ id: nextPlanId, name, removed: new Set() });
-  activePlanId = nextPlanId++;
-  savePlans();
-  renderCutPage();
-}
-
-function deletePlan(id) {
-  if (plans.length <= 1) return;
-  plans = plans.filter(p => p.id !== id);
-  if (activePlanId === id) activePlanId = plans[plans.length - 1].id;
-  savePlans();
-  renderCutPage();
-}
-
-function switchPlan(id) {
-  if (activePlanId === id) return;
-  activePlanId = id;
-  savePlans();
-  renderCutPage();
-}
-
-function finishRenamePlan(id, el) {
-  const p = plans.find(p => p.id === id);
-  if (p) { p.name = el.value.trim() || p.name; el.value = p.name; savePlans(); }
-}
-
 function renderPlanTabs() {
-  document.getElementById('planTabBar').innerHTML =
-    `<span class="plan-tab-bar-label">안 선택</span>` +
-    plans.map(p => {
-      const active = p.id === activePlanId;
-      const cnt = p.removed.size;
-      const addCnt = CANDIDATES.length - CAND_EXCLUDED.size;
-      const hasCut = cnt > 0 || CAND_EXCLUDED.size > 0;
-      const badgeClass = 'plan-tab-badge' + (active && hasCut ? ' has-cut' : '');
-      let badgeText = CANDIDATES.length > 0 ? `▲${addCnt}개` : '변경 없음';
-      if (cnt > 0) badgeText = `▼${cnt} ▲${addCnt}개`;
-      const delBtn = plans.length > 1
-        ? `<button class="plan-tab-del" onclick="event.stopPropagation();deletePlan(${p.id})" title="삭제">×</button>`
-        : '';
-      return `<div class="plan-tab${active ? ' active' : ''}" onclick="switchPlan(${p.id})">
-        <input class="plan-tab-name" id="planTabName_${p.id}"
-          value="${p.name}" onclick="${active ? 'event.stopPropagation()' : `switchPlan(${p.id})`}"
-          ondblclick="event.stopPropagation();this.select()"
-          onblur="finishRenamePlan(${p.id},this)"
-          onkeydown="if(event.key==='Enter')this.blur()">
-        <span class="${badgeClass}">${badgeText}</span>
-        ${delBtn}
-      </div>`;
-    }).join('') +
-    `<button class="plan-tab-add" onclick="addPlan()">+ 새 안</button>` +
-    `<div class="plan-tab-bar-actions">
-      <button class="btn-tab-bar-act btn-tab-csv" onclick="exportCollectionCSV()">CSV 내보내기</button>
-      <button class="btn-tab-bar-act btn-tab-save" onclick="saveToHtml()" title="${getGithubToken() ? 'GitHub에 바로 배포됩니다' : '로컬 파일로 저장됩니다'}">저장${getGithubToken() ? ' 🔗' : ''}</button>
-      <button class="btn-tab-bar-act" onclick="configureGithubPush()" title="GitHub 자동 배포 연결/해제" style="background:rgba(120,120,120,.2);border:1px solid rgba(120,120,120,.4)">⚙ GitHub</button>
-    </div>`;
+  document.getElementById('topActionBar').innerHTML =
+    `<button class="btn-tab-bar-act btn-tab-csv" onclick="exportCollectionCSV()">CSV 내보내기</button>
+    <button class="btn-tab-bar-act btn-tab-save" onclick="saveToHtml()" title="${getGithubToken() ? 'GitHub에 바로 배포됩니다' : '로컬 파일로 저장됩니다'}">저장${getGithubToken() ? ' 🔗' : ''}</button>
+    <button class="btn-tab-bar-act" onclick="configureGithubPush()" title="GitHub 자동 배포 연결/해제" style="background:rgba(120,120,120,.2);border:1px solid rgba(120,120,120,.4)">⚙ GitHub</button>`;
 }
 
 
