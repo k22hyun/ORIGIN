@@ -518,7 +518,8 @@
         <span class="src-chip">[오리진] Localization</span>
       </div>
     </div>
-    <div class="plan-tab-bar-actions" id="topActionBar"><button class="btn-tab-bar-act btn-tab-csv" onclick="exportCollectionCSV()">CSV 내보내기</button>
+    <div class="plan-tab-bar-actions" id="topActionBar"><button class="btn-tab-bar-act btn-tab-csv" onclick="exportExistingCSV()">CSV 내보내기 (기존 변경)</button>
+    <button class="btn-tab-bar-act btn-tab-csv" disabled="" title="추후 추가 예정" style="opacity:.45;cursor:not-allowed">CSV 내보내기 (신규 변경)</button>
     <button class="btn-tab-bar-act btn-tab-save" onclick="saveToHtml()" title="GitHub에 바로 배포됩니다">저장 🔗</button>
     <button class="btn-tab-bar-act" onclick="configureGithubPush()" title="GitHub 자동 배포 연결/해제" style="background:rgba(120,120,120,.2);border:1px solid rgba(120,120,120,.4)">⚙ GitHub</button></div>
   </div>
@@ -2838,13 +2839,13 @@
       <div class="stat-row" id="cutStatRow">
     <div class="stat-card">
       <div class="label">전체 수집품 (시리즈)</div>
-      <div class="value">134</div>
-      <div class="plan-diff-badge cut" style="margin-top:4px">▼ 8시리즈</div><div class="plan-diff-badge add" style="margin-top:4px">신규 ▲65시리즈</div>
+      <div class="value">137</div>
+      <div class="plan-diff-badge cut" style="margin-top:4px">▼ 5시리즈</div><div class="plan-diff-badge add" style="margin-top:4px">신규 ▲65시리즈</div>
     </div>
     <div class="stat-card">
       <div class="label">전체 수집품 (낱개)</div>
-      <div class="value">403</div>
-      <div class="plan-diff-badge cut" style="margin-top:4px">▼ 14개</div><div class="plan-diff-badge add" style="margin-top:4px">신규 ▲191개</div>
+      <div class="value">398</div>
+      <div class="plan-diff-badge cut" style="margin-top:4px">▼ 19개</div><div class="plan-diff-badge add" style="margin-top:4px">신규 ▲191개</div>
     </div>
   </div>
       <div class="sim-chart-tabs">
@@ -2857,16 +2858,16 @@
           <div class="sim-num-hdr"><span></span><span>시리즈</span><span>개</span><span>Δ시리즈</span><span>Δ개</span></div>
           <div class="cat-bars" id="cmpCatBars"><div class="cat-bar-row">
       <div class="cat-bar-label">01 알리아의 역사</div>
-      <span class="sim-num-s">7</span>
-      <span class="sim-num-n">28</span>
-      <span class="sim-num-ds add">▲5</span>
-      <span class="sim-num-dn add">▲22</span>
+      <span class="sim-num-s">8</span>
+      <span class="sim-num-n">29</span>
+      <span class="sim-num-ds add">▲6</span>
+      <span class="sim-num-dn add">▲23</span>
     </div><div class="cat-bar-row">
       <div class="cat-bar-label">02 고대 문명</div>
-      <span class="sim-num-s">3</span>
-      <span class="sim-num-n">7</span>
-      <span class="sim-num-ds none">—</span>
-      <span class="sim-num-dn none">—</span>
+      <span class="sim-num-s">2</span>
+      <span class="sim-num-n">2</span>
+      <span class="sim-num-ds cut">▼1</span>
+      <span class="sim-num-dn cut">▼5</span>
     </div><div class="cat-bar-row">
       <div class="cat-bar-label">03 용병단 일지</div>
       <span class="sim-num-s">3</span>
@@ -2881,16 +2882,16 @@
       <span class="sim-num-dn none">—</span>
     </div><div class="cat-bar-row">
       <div class="cat-bar-label">05 소문과 이야기</div>
-      <span class="sim-num-s">39</span>
-      <span class="sim-num-n">127</span>
-      <span class="sim-num-ds add">▲18</span>
-      <span class="sim-num-dn add">▲61</span>
+      <span class="sim-num-s">40</span>
+      <span class="sim-num-n">125</span>
+      <span class="sim-num-ds add">▲19</span>
+      <span class="sim-num-dn add">▲59</span>
     </div><div class="cat-bar-row">
       <div class="cat-bar-label">06 미확인 물품</div>
-      <span class="sim-num-s">56</span>
-      <span class="sim-num-n">142</span>
-      <span class="sim-num-ds add">▲25</span>
-      <span class="sim-num-dn add">▲62</span>
+      <span class="sim-num-s">58</span>
+      <span class="sim-num-n">143</span>
+      <span class="sim-num-ds add">▲27</span>
+      <span class="sim-num-dn add">▲63</span>
     </div><div class="cat-bar-row">
       <div class="cat-bar-label">07 마법공학</div>
       <span class="sim-num-s">17</span>
@@ -2915,10 +2916,10 @@
           <div class="sim-num-hdr"><span></span><span>시리즈</span><span>개</span><span>Δ시리즈</span><span>Δ개</span></div>
           <div class="cat-bars" id="cmpRegionBars"><div class="cat-bar-row">
       <div class="cat-bar-label">숨겨진 유적</div>
-      <span class="sim-num-s">11</span>
-      <span class="sim-num-n">31</span>
-      <span class="sim-num-ds none">—</span>
-      <span class="sim-num-dn none">—</span>
+      <span class="sim-num-s">10</span>
+      <span class="sim-num-n">27</span>
+      <span class="sim-num-ds cut">▼1</span>
+      <span class="sim-num-dn cut">▼4</span>
     </div><div class="cat-bar-row">
       <div class="cat-bar-label">엔칸타 기계창</div>
       <span class="sim-num-s">9</span>
@@ -2927,28 +2928,28 @@
       <span class="sim-num-dn none">—</span>
     </div><div class="cat-bar-row">
       <div class="cat-bar-label">가렌숲</div>
-      <span class="sim-num-s">8</span>
-      <span class="sim-num-n">30</span>
-      <span class="sim-num-ds cut">▼3</span>
-      <span class="sim-num-dn cut">▼3</span>
-    </div><div class="cat-bar-row">
-      <div class="cat-bar-label">포르테노 저택</div>
-      <span class="sim-num-s">10</span>
-      <span class="sim-num-n">30</span>
-      <span class="sim-num-ds cut">▼3</span>
-      <span class="sim-num-dn cut">▼3</span>
-    </div><div class="cat-bar-row">
-      <div class="cat-bar-label">튜넬 광산</div>
-      <span class="sim-num-s">10</span>
-      <span class="sim-num-n">25</span>
+      <span class="sim-num-s">11</span>
+      <span class="sim-num-n">33</span>
       <span class="sim-num-ds none">—</span>
       <span class="sim-num-dn none">—</span>
     </div><div class="cat-bar-row">
+      <div class="cat-bar-label">포르테노 저택</div>
+      <span class="sim-num-s">13</span>
+      <span class="sim-num-n">33</span>
+      <span class="sim-num-ds none">—</span>
+      <span class="sim-num-dn none">—</span>
+    </div><div class="cat-bar-row">
+      <div class="cat-bar-label">튜넬 광산</div>
+      <span class="sim-num-s">9</span>
+      <span class="sim-num-n">21</span>
+      <span class="sim-num-ds cut">▼1</span>
+      <span class="sim-num-dn cut">▼4</span>
+    </div><div class="cat-bar-row">
       <div class="cat-bar-label">볼로에르 암시장</div>
       <span class="sim-num-s">9</span>
-      <span class="sim-num-n">27</span>
+      <span class="sim-num-n">29</span>
       <span class="sim-num-ds cut">▼2</span>
-      <span class="sim-num-dn cut">▼8</span>
+      <span class="sim-num-dn cut">▼6</span>
     </div><div class="sim-region-sep">신규 지역</div><div class="cat-bar-row">
         <div class="cat-bar-label">패럿도스 기계창</div>
         <span class="sim-num-s">22</span>
@@ -2979,22 +2980,22 @@
           <div class="sim-num-hdr"><span></span><span>시리즈</span><span>개</span><span>Δ시리즈</span><span>Δ개</span></div>
           <div class="cat-bars" id="cmpCondBars"><div class="cat-bar-row">
       <div class="cat-bar-label">전투 - 클리어</div>
-      <span class="sim-num-s">120</span>
+      <span class="sim-num-s">124</span>
       <span class="sim-num-n">344</span>
-      <span class="sim-num-ds add">▲57</span>
+      <span class="sim-num-ds add">▲61</span>
       <span class="sim-num-dn add">▲177</span>
     </div><div class="cat-bar-row">
       <div class="cat-bar-label">용병단 - 대화</div>
-      <span class="sim-num-s">2</span>
-      <span class="sim-num-n">2</span>
-      <span class="sim-num-ds none">—</span>
-      <span class="sim-num-dn none">—</span>
+      <span class="sim-num-s">1</span>
+      <span class="sim-num-n">1</span>
+      <span class="sim-num-ds cut">▼1</span>
+      <span class="sim-num-dn cut">▼1</span>
     </div><div class="cat-bar-row">
       <div class="cat-bar-label">전투 - 탐색전투</div>
-      <span class="sim-num-s">1</span>
-      <span class="sim-num-n">4</span>
-      <span class="sim-num-ds none">—</span>
-      <span class="sim-num-dn none">—</span>
+      <span class="sim-num-s">0</span>
+      <span class="sim-num-n">0</span>
+      <span class="sim-num-ds cut">▼1</span>
+      <span class="sim-num-dn cut">▼4</span>
     </div><div class="cat-bar-row">
       <div class="cat-bar-label">천공섬 터치</div>
       <span class="sim-num-s">1</span>
@@ -3029,34 +3030,34 @@
   </div>
   <div class="page-sec-label sim-pane-label">전체 목록</div>
   <div class="sim-sub-tabs">
-    <div class="sim-sub-tab" id="simSubTabExisting" onclick="switchSimTab('existing')">기존 수집품 <span class="sub-tab-cnt" id="subTabCntExisting">제외 14</span></div>
+    <div class="sim-sub-tab active" id="simSubTabExisting" onclick="switchSimTab('existing')">기존 수집품 <span class="sub-tab-cnt" id="subTabCntExisting">제외 19</span></div>
     <div class="sim-sub-tab" id="simSubTabNew" onclick="switchSimTab('new')">신규 수집품 <span class="sub-tab-cnt" id="subTabCntNew">191</span></div>
-    <div class="sim-sub-tab active" id="simSubTabAlways" onclick="switchSimTab('always')">[참고] 확정 드랍 수집품 <span class="sub-tab-cnt" id="subTabCntAlways">14 ▲11</span></div>
+    <div class="sim-sub-tab" id="simSubTabAlways" onclick="switchSimTab('always')">[참고] 확정 드랍 수집품 <span class="sub-tab-cnt" id="subTabCntAlways">13 -1 ▲11</span></div>
   </div>
 
   <!-- 서브탭: 기존 수집품 패널 -->
-  <div id="simPanelExisting" class="sim-panel">
+  <div id="simPanelExisting" class="sim-panel active">
   <!-- 활성 안 편집 테이블 -->
   <div class="table-box">
     <div class="filters">
       <input type="text" id="cutSearch" placeholder="🔍 이름 또는 ID 검색…">
       <div class="multi-select" id="msCutCat">
         <button class="ms-btn" onclick="toggleMS('msCutCat')">카테고리 <span class="ms-arrow">▾</span></button>
-        <div class="ms-panel" id="msCutCatPanel"><div class="ms-panel-reset"><span class="ms-panel-title">카테고리</span><button>선택 초기화</button></div><label data-key="1"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">01 알리아의 역사</span><span class="ms-count ms-count-active">6</span></div></label><label data-key="2"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">02 고대 문명</span><span class="ms-count ms-count-active">7</span></div></label><label data-key="3"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">03 용병단 일지</span><span class="ms-count ms-count-active">11</span></div></label><label data-key="4"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">04 천공의회</span><span class="ms-count ms-count-active">17</span></div></label><label data-key="5"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">05 소문과 이야기</span><span class="ms-count ms-count-active">66</span></div></label><label data-key="6"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">06 미확인 물품</span><span class="ms-count ms-count-active">80</span></div></label><label data-key="7"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">07 마법공학</span><span class="ms-count ms-count-active">34</span></div></label><label data-key="8"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">08 인물</span><span class="ms-count ms-count-active">5</span></div></label><label data-key="9"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">09 그림자연맹</span><span class="ms-count">0</span></div></label></div>
+        <div class="ms-panel" id="msCutCatPanel"><div class="ms-panel-reset"><span class="ms-panel-title">카테고리</span><button>선택 초기화</button></div><label data-key="1"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">01 알리아의 역사</span><span class="ms-count ms-count-active">6</span></div></label><label data-key="2"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">02 고대 문명</span><span class="ms-count ms-count-active">2</span></div></label><label data-key="3"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">03 용병단 일지</span><span class="ms-count ms-count-active">11</span></div></label><label data-key="4"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">04 천공의회</span><span class="ms-count ms-count-active">17</span></div></label><label data-key="5"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">05 소문과 이야기</span><span class="ms-count ms-count-active">60</span></div></label><label data-key="6"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">06 미확인 물품</span><span class="ms-count ms-count-active">72</span></div></label><label data-key="7"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">07 마법공학</span><span class="ms-count ms-count-active">34</span></div></label><label data-key="8"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">08 인물</span><span class="ms-count ms-count-active">5</span></div></label><label data-key="9"><input type="checkbox"><div class="ms-item ms-item-zero"><div class="ms-chk"></div><span class="ms-item-text">09 그림자연맹</span><span class="ms-count">0</span></div></label></div>
       </div>
       <div class="multi-select" id="msCutCond">
         <button class="ms-btn" onclick="toggleMS('msCutCond')">획득 조건 <span class="ms-arrow">▾</span></button>
-        <div class="ms-panel" id="msCutCondPanel"><div class="ms-panel-reset"><span class="ms-panel-title">획득 조건</span><button>선택 초기화</button></div><label data-key="BATTLE_CLEAR"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">전투 - 클리어</span><span class="ms-count ms-count-active">167</span></div></label><label data-key="BATTLE_CLEAR_UNIT"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">전투 - 특정 빌런 처치</span><span class="ms-count ms-count-active">19</span></div></label><label data-key="DROP_IN_IDLE"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">전투 - 탐색전투</span><span class="ms-count ms-count-active">4</span></div></label><label data-key="IN_WORLD"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">천공섬 터치</span><span class="ms-count ms-count-active">5</span></div></label><label data-key="STAGE_MAP_TOUCH"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">스테이지맵 터치</span><span class="ms-count">0</span></div></label><label data-key="CONTROL_ROOM_DIALOG"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">용병단 - 대화</span><span class="ms-count ms-count-active">2</span></div></label><label data-key="MERCENARY"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">의뢰</span><span class="ms-count ms-count-active">29</span></div></label><label data-key="SHOP"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">물자보급선</span><span class="ms-count">0</span></div></label></div>
+        <div class="ms-panel" id="msCutCondPanel"><div class="ms-panel-reset"><span class="ms-panel-title">획득 조건</span><button>선택 초기화</button></div><label data-key="BATTLE_CLEAR"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">전투 - 클리어</span><span class="ms-count ms-count-active">153</span></div></label><label data-key="BATTLE_CLEAR_UNIT"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">전투 - 특정 빌런 처치</span><span class="ms-count ms-count-active">19</span></div></label><label data-key="DROP_IN_IDLE"><input type="checkbox"><div class="ms-item ms-item-zero"><div class="ms-chk"></div><span class="ms-item-text">전투 - 탐색전투</span><span class="ms-count">0</span></div></label><label data-key="IN_WORLD"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">천공섬 터치</span><span class="ms-count ms-count-active">5</span></div></label><label data-key="STAGE_MAP_TOUCH"><input type="checkbox"><div class="ms-item ms-item-zero"><div class="ms-chk"></div><span class="ms-item-text">스테이지맵 터치</span><span class="ms-count">0</span></div></label><label data-key="CONTROL_ROOM_DIALOG"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">용병단 - 대화</span><span class="ms-count ms-count-active">1</span></div></label><label data-key="MERCENARY"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">의뢰</span><span class="ms-count ms-count-active">29</span></div></label><label data-key="SHOP"><input type="checkbox"><div class="ms-item ms-item-zero"><div class="ms-chk"></div><span class="ms-item-text">물자보급선</span><span class="ms-count">0</span></div></label></div>
       </div>
       <div class="multi-select" id="msCutRegion">
         <button class="ms-btn" onclick="toggleMS('msCutRegion')">시나리오 지역 <span class="ms-arrow">▾</span></button>
-        <div class="ms-panel" id="msCutRegionPanel"><div class="ms-panel-reset"><span class="ms-panel-title">시나리오 지역</span><button>선택 초기화</button></div><label data-key="숨겨진 유적"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">숨겨진 유적</span><span class="ms-count ms-count-active">31</span></div></label><label data-key="엔칸타 기계창"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">엔칸타 기계창</span><span class="ms-count ms-count-active">29</span></div></label><label data-key="가렌숲"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">가렌숲</span><span class="ms-count ms-count-active">33</span></div></label><label data-key="포르테노 저택"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">포르테노 저택</span><span class="ms-count ms-count-active">33</span></div></label><label data-key="튜넬 광산"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">튜넬 광산</span><span class="ms-count ms-count-active">25</span></div></label><label data-key="볼로에르 암시장"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">볼로에르 암시장</span><span class="ms-count ms-count-active">35</span></div></label><label data-key="패럿도스 기계창"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">패럿도스 기계창</span><span class="ms-count">0</span></div></label><label data-key="로레스 항구"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">로레스 항구</span><span class="ms-count">0</span></div></label><label data-key="피라타 섬"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">피라타 섬</span><span class="ms-count">0</span></div></label><label data-key="데빌스라커"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">데빌스라커</span><span class="ms-count">0</span></div></label></div>
+        <div class="ms-panel" id="msCutRegionPanel"><div class="ms-panel-reset"><span class="ms-panel-title">시나리오 지역</span><button>선택 초기화</button></div><label data-key="숨겨진 유적"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">숨겨진 유적</span><span class="ms-count ms-count-active">27</span></div></label><label data-key="엔칸타 기계창"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">엔칸타 기계창</span><span class="ms-count ms-count-active">29</span></div></label><label data-key="가렌숲"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">가렌숲</span><span class="ms-count ms-count-active">33</span></div></label><label data-key="포르테노 저택"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">포르테노 저택</span><span class="ms-count ms-count-active">33</span></div></label><label data-key="튜넬 광산"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">튜넬 광산</span><span class="ms-count ms-count-active">21</span></div></label><label data-key="볼로에르 암시장"><input type="checkbox"><div class="ms-item"><div class="ms-chk"></div><span class="ms-item-text">볼로에르 암시장</span><span class="ms-count ms-count-active">29</span></div></label><label data-key="패럿도스 기계창"><input type="checkbox"><div class="ms-item ms-item-zero"><div class="ms-chk"></div><span class="ms-item-text">패럿도스 기계창</span><span class="ms-count">0</span></div></label><label data-key="로레스 항구"><input type="checkbox"><div class="ms-item ms-item-zero"><div class="ms-chk"></div><span class="ms-item-text">로레스 항구</span><span class="ms-count">0</span></div></label><label data-key="피라타 섬"><input type="checkbox"><div class="ms-item ms-item-zero"><div class="ms-chk"></div><span class="ms-item-text">피라타 섬</span><span class="ms-count">0</span></div></label><label data-key="데빌스라커"><input type="checkbox"><div class="ms-item ms-item-zero"><div class="ms-chk"></div><span class="ms-item-text">데빌스라커</span><span class="ms-count">0</span></div></label></div>
       </div>
       <div class="cand-filter-toggle" id="cutFilterToggle">
         <button class="cft-btn active" onclick="setCutFilter('keep')">유지 항목</button>
         <button class="cft-btn" onclick="setCutFilter('removed')">제외 항목</button>
       </div>
-      <span class="filter-count" id="cutFilterCount">212개 표시</span>
+      <span class="filter-count" id="cutFilterCount">207개 표시</span>
       <button class="btn-clear-cut" onclick="clearCut()">제외 전체 해제</button>
     </div>
     <div style="overflow-x:auto">
@@ -3114,6 +3115,15 @@
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(10005,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(10005)">제외</button></td>
       </tr><tr class="tr-group-start">
+        <td class="td-id no-strike">10011</td>
+        <td class="ie-cell" onclick="openInlineEdit(10011,'cat',this)"><span class="badge badge-cat1">01 알리아의 역사</span></td>
+        <td class="td-dim no-strike"></td>
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(10011)">운드미르 조약서</span><button class="btn-desc" onclick="openDesc(10011)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(10011,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(10011,'place_sn',this)">6레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(10011,'place_region',this)">포르테노 저택</td><td class="ie-cell td-sn" onclick="openInlineEdit(10011,'place_stage',this)">4 스테이지</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(10011,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(10011)">제외</button></td>
+      </tr><tr class="tr-group-start">
         <td class="td-id no-strike">20001</td>
         <td class="ie-cell" onclick="openInlineEdit(20001,'cat',this)"><span class="badge badge-cat2">02 고대 문명</span></td>
         <td class="td-dim no-strike"></td>
@@ -3131,51 +3141,6 @@
         <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(20011,'place_sn',this)">2레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(20011,'place_region',this)">숨겨진 유적</td><td class="ie-cell td-sn" onclick="openInlineEdit(20011,'place_stage',this)">전지역</td>
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(20011,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(20011)">제외</button></td>
-      </tr><tr class="tr-in-series tr-group-start">
-        <td class="td-id no-strike">20021</td>
-        <td class="ie-cell" onclick="openInlineEdit(20021,'cat',this)"><span class="badge badge-cat2">02 고대 문명</span></td>
-        <td class="td-series-merged no-strike" rowspan="5"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">수십 세기 전 작성된 연구 기록</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([20021,20022,20023,20024,20025],'수십 세기 전 작성된 연구 기록')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([20021,20022,20023,20024,20025])">일괄 제외</button></td>
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(20021)">바스러질 것 같은 기록-1</span><button class="btn-desc" onclick="openDesc(20021)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(20021,'cond',this)"><span class="badge badge-cond-crd">용병단 - 대화</span></td>
-        <td class="td-dim no-strike">—</td><td class="td-dim">—</td><td class="td-dim">—</td>
-        <td class="ie-cell td-pct pct-always" onclick="openInlineEdit(20021,'pct',this)">100%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(20021)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">20022</td>
-        <td class="ie-cell" onclick="openInlineEdit(20022,'cat',this)"><span class="badge badge-cat2">02 고대 문명</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(20022)">바스러질 것 같은 기록-2</span><button class="btn-desc" onclick="openDesc(20022)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(20022,'cond',this)"><span class="badge badge-cond-di">전투 - 탐색전투</span></td>
-        <td class="td-dim no-strike">—</td><td class="ie-cell td-place" onclick="openInlineEdit(20022,'place_region',this)">정령의 던전 탐색전투</td><td class="ie-cell td-sn" onclick="openInlineEdit(20022,'place_stage',this)"></td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(20022,'pct',this)">0.05%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(20022)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">20023</td>
-        <td class="ie-cell" onclick="openInlineEdit(20023,'cat',this)"><span class="badge badge-cat2">02 고대 문명</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(20023)">바스러질 것 같은 기록-3</span><button class="btn-desc" onclick="openDesc(20023)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(20023,'cond',this)"><span class="badge badge-cond-di">전투 - 탐색전투</span></td>
-        <td class="td-dim no-strike">—</td><td class="ie-cell td-place" onclick="openInlineEdit(20023,'place_region',this)">정령의 던전 탐색전투</td><td class="ie-cell td-sn" onclick="openInlineEdit(20023,'place_stage',this)"></td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(20023,'pct',this)">0.05%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(20023)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">20024</td>
-        <td class="ie-cell" onclick="openInlineEdit(20024,'cat',this)"><span class="badge badge-cat2">02 고대 문명</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(20024)">바스러질 것 같은 기록-4</span><button class="btn-desc" onclick="openDesc(20024)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(20024,'cond',this)"><span class="badge badge-cond-di">전투 - 탐색전투</span></td>
-        <td class="td-dim no-strike">—</td><td class="ie-cell td-place" onclick="openInlineEdit(20024,'place_region',this)">죽음의 던전 탐색전투</td><td class="ie-cell td-sn" onclick="openInlineEdit(20024,'place_stage',this)"></td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(20024,'pct',this)">0.05%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(20024)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">20025</td>
-        <td class="ie-cell" onclick="openInlineEdit(20025,'cat',this)"><span class="badge badge-cat2">02 고대 문명</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(20025)">바스러질 것 같은 기록-5</span><button class="btn-desc" onclick="openDesc(20025)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(20025,'cond',this)"><span class="badge badge-cond-di">전투 - 탐색전투</span></td>
-        <td class="td-dim no-strike">—</td><td class="ie-cell td-place" onclick="openInlineEdit(20025,'place_region',this)">죽음의 던전 탐색전투</td><td class="ie-cell td-sn" onclick="openInlineEdit(20025,'place_stage',this)"></td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(20025,'pct',this)">0.05%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(20025)">제외</button></td>
       </tr><tr class="tr-in-series tr-group-start">
         <td class="td-id no-strike">30001</td>
         <td class="ie-cell" onclick="openInlineEdit(30001,'cat',this)"><span class="badge badge-cat3">03 용병단 일지</span></td>
@@ -3429,33 +3394,6 @@
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(40051,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(40051)">제외</button></td>
       </tr><tr class="tr-in-series tr-group-start">
-        <td class="td-id no-strike">50001</td>
-        <td class="ie-cell" onclick="openInlineEdit(50001,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
-        <td class="td-series-merged no-strike" rowspan="3"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">피우스의 유서</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([50001,50002,50003],'피우스의 유서')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([50001,50002,50003])">일괄 제외</button></td>
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(50001)">To. 페르비카</span><button class="btn-desc" onclick="openDesc(50001)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(50001,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50001,'place_sn',this)">2레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50001,'place_region',this)">숨겨진 유적</td><td class="ie-cell td-sn" onclick="openInlineEdit(50001,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50001,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50001)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">50002</td>
-        <td class="ie-cell" onclick="openInlineEdit(50002,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(50002)">To. 벨</span><button class="btn-desc" onclick="openDesc(50002)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(50002,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50002,'place_sn',this)">2레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50002,'place_region',this)">숨겨진 유적</td><td class="ie-cell td-sn" onclick="openInlineEdit(50002,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50002,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50002)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">50003</td>
-        <td class="ie-cell" onclick="openInlineEdit(50003,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(50003)">To. 필루스</span><button class="btn-desc" onclick="openDesc(50003)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(50003,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50003,'place_sn',this)">2레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50003,'place_region',this)">숨겨진 유적</td><td class="ie-cell td-sn" onclick="openInlineEdit(50003,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50003,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50003)">제외</button></td>
-      </tr><tr class="tr-in-series tr-group-start">
         <td class="td-id no-strike">50011</td>
         <td class="ie-cell" onclick="openInlineEdit(50011,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
         <td class="td-series-merged no-strike" rowspan="3"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">이난의 첫 번째 도굴 기록</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([50011,50012,50013],'이난의 첫 번째 도굴 기록')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([50011,50012,50013])">일괄 제외</button></td>
@@ -3485,7 +3423,7 @@
       </tr><tr class="tr-in-series tr-group-start">
         <td class="td-id no-strike">50021</td>
         <td class="ie-cell" onclick="openInlineEdit(50021,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
-        <td class="td-series-merged no-strike" rowspan="4"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">아베로의 수기</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([50021,50022,50023,50024],'아베로의 수기')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([50021,50022,50023,50024])">일괄 제외</button></td>
+        <td class="td-series-merged no-strike" rowspan="3"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">아베로의 수기</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([50021,50022,50024],'아베로의 수기')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([50021,50022,50024])">일괄 제외</button></td>
         <td class="td-name"><span class="name-clickable" onclick="openDesc(50021)">첫 번째 장</span><button class="btn-desc" onclick="openDesc(50021)">내용</button></td>
         <td class="ie-cell" onclick="openInlineEdit(50021,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
         <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50021,'place_sn',this)">9레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(50021,'place_region',this)">숨겨진 유적</td><td class="ie-cell td-sn" onclick="openInlineEdit(50021,'place_stage',this)">전지역</td>
@@ -3500,15 +3438,6 @@
         <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50022,'place_sn',this)">9레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(50022,'place_region',this)">숨겨진 유적</td><td class="ie-cell td-sn" onclick="openInlineEdit(50022,'place_stage',this)">전지역</td>
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50022,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50022)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">50023</td>
-        <td class="ie-cell" onclick="openInlineEdit(50023,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(50023)">세 번째 장</span><button class="btn-desc" onclick="openDesc(50023)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(50023,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50023,'place_sn',this)">9레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(50023,'place_region',this)">숨겨진 유적</td><td class="ie-cell td-sn" onclick="openInlineEdit(50023,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50023,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50023)">제외</button></td>
       </tr><tr class="tr-in-series">
         <td class="td-id no-strike">50024</td>
         <td class="ie-cell" onclick="openInlineEdit(50024,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
@@ -3708,6 +3637,24 @@
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50094,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50094)">제외</button></td>
       </tr><tr class="tr-group-start">
+        <td class="td-id no-strike">50101</td>
+        <td class="ie-cell" onclick="openInlineEdit(50101,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
+        <td class="td-dim no-strike"></td>
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(50101)">에드볼프 포르테노 추대 결의문</span><button class="btn-desc" onclick="openDesc(50101)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(50101,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50101,'place_sn',this)">7레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(50101,'place_region',this)">포르테노 저택</td><td class="ie-cell td-sn" onclick="openInlineEdit(50101,'place_stage',this)">13 스테이지</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50101,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50101)">제외</button></td>
+      </tr><tr class="tr-group-start">
+        <td class="td-id no-strike">50111</td>
+        <td class="ie-cell" onclick="openInlineEdit(50111,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
+        <td class="td-dim no-strike"></td>
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(50111)">가디언스펠 밀약서</span><button class="btn-desc" onclick="openDesc(50111)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(50111,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50111,'place_sn',this)">7레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(50111,'place_region',this)">포르테노 저택</td><td class="ie-cell td-sn" onclick="openInlineEdit(50111,'place_stage',this)">13 스테이지</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50111,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50111)">제외</button></td>
+      </tr><tr class="tr-group-start">
         <td class="td-id no-strike">50121</td>
         <td class="ie-cell" onclick="openInlineEdit(50121,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
         <td class="td-dim no-strike"></td>
@@ -3719,21 +3666,12 @@
       </tr><tr class="tr-in-series tr-group-start">
         <td class="td-id no-strike">50131</td>
         <td class="ie-cell" onclick="openInlineEdit(50131,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
-        <td class="td-series-merged no-strike" rowspan="4"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">찢긴 일기장</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([50131,50132,50133,50134],'찢긴 일기장')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([50131,50132,50133,50134])">일괄 제외</button></td>
+        <td class="td-series-merged no-strike" rowspan="2"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">찢긴 일기장</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([50131,50133],'찢긴 일기장')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([50131,50133])">일괄 제외</button></td>
         <td class="td-name"><span class="name-clickable" onclick="openDesc(50131)">찢긴 페이지 일부-1</span><button class="btn-desc" onclick="openDesc(50131)">내용</button></td>
         <td class="ie-cell" onclick="openInlineEdit(50131,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
         <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50131,'place_sn',this)">6레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50131,'place_region',this)">튜넬 광산</td><td class="ie-cell td-sn" onclick="openInlineEdit(50131,'place_stage',this)">전지역</td>
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50131,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50131)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">50132</td>
-        <td class="ie-cell" onclick="openInlineEdit(50132,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(50132)">찢긴 페이지 일부-2</span><button class="btn-desc" onclick="openDesc(50132)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(50132,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50132,'place_sn',this)">6레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50132,'place_region',this)">튜넬 광산</td><td class="ie-cell td-sn" onclick="openInlineEdit(50132,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50132,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50132)">제외</button></td>
       </tr><tr class="tr-in-series">
         <td class="td-id no-strike">50133</td>
         <td class="ie-cell" onclick="openInlineEdit(50133,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
@@ -3743,15 +3681,6 @@
         <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50133,'place_sn',this)">6레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50133,'place_region',this)">튜넬 광산</td><td class="ie-cell td-sn" onclick="openInlineEdit(50133,'place_stage',this)">전지역</td>
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50133,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50133)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">50134</td>
-        <td class="ie-cell" onclick="openInlineEdit(50134,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(50134)">찢긴 페이지 일부-4</span><button class="btn-desc" onclick="openDesc(50134)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(50134,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50134,'place_sn',this)">6레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50134,'place_region',this)">튜넬 광산</td><td class="ie-cell td-sn" onclick="openInlineEdit(50134,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50134,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50134)">제외</button></td>
       </tr><tr class="tr-group-start">
         <td class="td-id no-strike">50141</td>
         <td class="ie-cell" onclick="openInlineEdit(50141,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
@@ -3818,9 +3747,9 @@
       </tr><tr class="tr-in-series tr-group-start">
         <td class="td-id no-strike">50161</td>
         <td class="ie-cell" onclick="openInlineEdit(50161,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
-        <td class="td-series-merged no-strike" rowspan="3"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">VIP 경매장 팸플릿
-- 유물 -</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([50161,50162,50163],'VIP 경매장 팸플릿
-- 유물 -')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([50161,50162,50163])">일괄 제외</button></td>
+        <td class="td-series-merged no-strike" rowspan="5"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">VIP 경매장 팸플릿
+- 유물 -</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([50161,50162,50163,50164,50165],'VIP 경매장 팸플릿
+- 유물 -')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([50161,50162,50163,50164,50165])">일괄 제외</button></td>
         <td class="td-name"><span class="name-clickable" onclick="openDesc(50161)">첫 번째 물품</span><button class="btn-desc" onclick="openDesc(50161)">내용</button></td>
         <td class="ie-cell" onclick="openInlineEdit(50161,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
         <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50161,'place_sn',this)">7레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50161,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(50161,'place_stage',this)">전지역</td>
@@ -3844,6 +3773,24 @@
         <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50163,'place_sn',this)">7레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50163,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(50163,'place_stage',this)">13 스테이지</td>
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50163,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50163)">제외</button></td>
+      </tr><tr class="tr-in-series">
+        <td class="td-id no-strike">50164</td>
+        <td class="ie-cell" onclick="openInlineEdit(50164,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
+        
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(50164)">네 번째 물품</span><button class="btn-desc" onclick="openDesc(50164)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(50164,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50164,'place_sn',this)">7레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50164,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(50164,'place_stage',this)">13 스테이지</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50164,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50164)">제외</button></td>
+      </tr><tr class="tr-in-series">
+        <td class="td-id no-strike">50165</td>
+        <td class="ie-cell" onclick="openInlineEdit(50165,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
+        
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(50165)">다섯 번째 물품</span><button class="btn-desc" onclick="openDesc(50165)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(50165,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(50165,'place_sn',this)">7레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(50165,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(50165,'place_stage',this)">13 스테이지</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(50165,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(50165)">제외</button></td>
       </tr><tr class="tr-in-series tr-group-start">
         <td class="td-id no-strike">50171</td>
         <td class="ie-cell" onclick="openInlineEdit(50171,'cat',this)"><span class="badge badge-cat5">05 소문과 이야기</span></td>
@@ -4051,6 +3998,33 @@
         <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60031,'place_sn',this)">3레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(60031,'place_region',this)">엔칸타 기계창</td><td class="ie-cell td-sn" onclick="openInlineEdit(60031,'place_stage',this)">1 스테이지</td>
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60031,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60031)">제외</button></td>
+      </tr><tr class="tr-group-start">
+        <td class="td-id no-strike">60041</td>
+        <td class="ie-cell" onclick="openInlineEdit(60041,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
+        <td class="td-dim no-strike"></td>
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(60041)">맑고 투명한 구슬</span><button class="btn-desc" onclick="openDesc(60041)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(60041,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60041,'place_sn',this)">4레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(60041,'place_region',this)">가렌숲</td><td class="ie-cell td-sn" onclick="openInlineEdit(60041,'place_stage',this)">13 스테이지</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60041,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60041)">제외</button></td>
+      </tr><tr class="tr-group-start">
+        <td class="td-id no-strike">60051</td>
+        <td class="ie-cell" onclick="openInlineEdit(60051,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
+        <td class="td-dim no-strike"></td>
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(60051)">파린을 닮은 파란 꽃</span><button class="btn-desc" onclick="openDesc(60051)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(60051,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60051,'place_sn',this)">4레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(60051,'place_region',this)">가렌숲</td><td class="ie-cell td-sn" onclick="openInlineEdit(60051,'place_stage',this)">13 스테이지</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60051,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60051)">제외</button></td>
+      </tr><tr class="tr-group-start">
+        <td class="td-id no-strike">60061</td>
+        <td class="ie-cell" onclick="openInlineEdit(60061,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
+        <td class="td-dim no-strike"></td>
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(60061)">푸른 깃털</span><button class="btn-desc" onclick="openDesc(60061)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(60061,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60061,'place_sn',this)">4레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(60061,'place_region',this)">가렌숲</td><td class="ie-cell td-sn" onclick="openInlineEdit(60061,'place_stage',this)">13 스테이지</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60061,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60061)">제외</button></td>
       </tr><tr class="tr-group-start">
         <td class="td-id no-strike">60071</td>
         <td class="ie-cell" onclick="openInlineEdit(60071,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
@@ -4340,14 +4314,59 @@
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60153,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60153)">제외</button></td>
       </tr><tr class="tr-group-start">
-        <td class="td-id no-strike">60161</td>
-        <td class="ie-cell" onclick="openInlineEdit(60161,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
+        <td class="td-id no-strike">60171</td>
+        <td class="ie-cell" onclick="openInlineEdit(60171,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
         <td class="td-dim no-strike"></td>
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(60161)">피가 굳어 있는 붕대</span><button class="btn-desc" onclick="openDesc(60161)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(60161,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60161,'place_sn',this)">5레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(60161,'place_region',this)">튜넬 광산</td><td class="ie-cell td-sn" onclick="openInlineEdit(60161,'place_stage',this)">10 스테이지</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60161,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60161)">제외</button></td>
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(60171)">수상한 쪽지</span><button class="btn-desc" onclick="openDesc(60171)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(60171,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60171,'place_sn',this)">8레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(60171,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60171,'place_stage',this)">13 스테이지</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60171,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60171)">제외</button></td>
+      </tr><tr class="tr-in-series tr-group-start">
+        <td class="td-id no-strike">60181</td>
+        <td class="ie-cell" onclick="openInlineEdit(60181,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
+        <td class="td-series-merged no-strike" rowspan="5"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">비밀 장부 - A.K </div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([60181,60182,60183,60184,60185],'비밀 장부 - A.K ')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([60181,60182,60183,60184,60185])">일괄 제외</button></td>
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(60181)">Yvil ya V'iypelu</span><button class="btn-desc" onclick="openDesc(60181)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(60181,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60181,'place_sn',this)">9레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60181,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60181,'place_stage',this)">전지역</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60181,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60181)">제외</button></td>
+      </tr><tr class="tr-in-series">
+        <td class="td-id no-strike">60182</td>
+        <td class="ie-cell" onclick="openInlineEdit(60182,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
+        
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(60182)">Qbsphuh Htiyvl</span><button class="btn-desc" onclick="openDesc(60182)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(60182,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60182,'place_sn',this)">9레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60182,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60182,'place_stage',this)">전지역</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60182,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60182)">제외</button></td>
+      </tr><tr class="tr-in-series">
+        <td class="td-id no-strike">60183</td>
+        <td class="ie-cell" onclick="openInlineEdit(60183,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
+        
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(60183)">Mhisl Ahovtzu</span><button class="btn-desc" onclick="openDesc(60183)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(60183,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60183,'place_sn',this)">9레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60183,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60183,'place_stage',this)">전지역</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60183,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60183)">제외</button></td>
+      </tr><tr class="tr-in-series">
+        <td class="td-id no-strike">60184</td>
+        <td class="ie-cell" onclick="openInlineEdit(60184,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
+        
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(60184)">Lkdvsm Wvyaluv</span><button class="btn-desc" onclick="openDesc(60184)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(60184,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60184,'place_sn',this)">9레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60184,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60184,'place_stage',this)">전지역</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60184,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60184)">제외</button></td>
+      </tr><tr class="tr-in-series">
+        <td class="td-id no-strike">60185</td>
+        <td class="ie-cell" onclick="openInlineEdit(60185,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
+        
+        <td class="td-name"><span class="name-clickable" onclick="openDesc(60185)">Myhbz Cpzolu</span><button class="btn-desc" onclick="openDesc(60185)">내용</button></td>
+        <td class="ie-cell" onclick="openInlineEdit(60185,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
+        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60185,'place_sn',this)">9레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60185,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60185,'place_stage',this)">전지역</td>
+        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60185,'pct',this)">0.10%</td>
+        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60185)">제외</button></td>
       </tr><tr class="tr-in-series tr-group-start">
         <td class="td-id no-strike">60191</td>
         <td class="ie-cell" onclick="openInlineEdit(60191,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
@@ -4394,15 +4413,6 @@
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60195,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60195)">제외</button></td>
       </tr><tr class="tr-group-start">
-        <td class="td-id no-strike">60201</td>
-        <td class="ie-cell" onclick="openInlineEdit(60201,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
-        <td class="td-dim no-strike"></td>
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(60201)">튜넬 광산 인부 모집 공고</span><button class="btn-desc" onclick="openDesc(60201)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(60201,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60201,'place_sn',this)">6레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(60201,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60201,'place_stage',this)">7 스테이지</td>
-        <td class="ie-cell td-pct pct-always" onclick="openInlineEdit(60201,'pct',this)">100%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60201)">제외</button></td>
-      </tr><tr class="tr-group-start">
         <td class="td-id no-strike">60211</td>
         <td class="ie-cell" onclick="openInlineEdit(60211,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
         <td class="td-dim no-strike"></td>
@@ -4411,51 +4421,6 @@
         <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60211,'place_sn',this)">8레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60211,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60211,'place_stage',this)">13 스테이지</td>
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60211,'pct',this)">0.10%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60211)">제외</button></td>
-      </tr><tr class="tr-in-series tr-group-start">
-        <td class="td-id no-strike">60221</td>
-        <td class="ie-cell" onclick="openInlineEdit(60221,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
-        <td class="td-series-merged no-strike" rowspan="5"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">벽에 붙은 광고지</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([60221,60222,60223,60224,60225],'벽에 붙은 광고지')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([60221,60222,60223,60224,60225])">일괄 제외</button></td>
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(60221)">긴급 구인, 선착순! - 1</span><button class="btn-desc" onclick="openDesc(60221)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(60221,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60221,'place_sn',this)">8레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60221,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60221,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60221,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60221)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">60222</td>
-        <td class="ie-cell" onclick="openInlineEdit(60222,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(60222)">긴급 구인, 선착순! - 2</span><button class="btn-desc" onclick="openDesc(60222)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(60222,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60222,'place_sn',this)">8레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60222,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60222,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60222,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60222)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">60223</td>
-        <td class="ie-cell" onclick="openInlineEdit(60223,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(60223)">설산 늑대 박제 구합니다!</span><button class="btn-desc" onclick="openDesc(60223)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(60223,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60223,'place_sn',this)">8레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60223,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60223,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60223,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60223)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">60224</td>
-        <td class="ie-cell" onclick="openInlineEdit(60224,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(60224)">금화 싸게 빌려드립니다!</span><button class="btn-desc" onclick="openDesc(60224)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(60224,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60224,'place_sn',this)">8레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60224,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60224,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60224,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60224)">제외</button></td>
-      </tr><tr class="tr-in-series">
-        <td class="td-id no-strike">60225</td>
-        <td class="ie-cell" onclick="openInlineEdit(60225,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
-        
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(60225)">사람을 찾습니다!</span><button class="btn-desc" onclick="openDesc(60225)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(60225,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60225,'place_sn',this)">8레벨 이상</td><td class="ie-cell td-place" onclick="openInlineEdit(60225,'place_region',this)">볼로에르 암시장</td><td class="ie-cell td-sn" onclick="openInlineEdit(60225,'place_stage',this)">전지역</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60225,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60225)">제외</button></td>
       </tr><tr class="tr-in-series tr-group-start">
         <td class="td-id no-strike">60231</td>
         <td class="ie-cell" onclick="openInlineEdit(60231,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
@@ -4529,18 +4494,9 @@
         <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60244,'pct',this)">0.20%</td>
         <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60244)">제외</button></td>
       </tr><tr class="tr-in-series tr-group-start">
-        <td class="td-id no-strike">60251</td>
-        <td class="ie-cell" onclick="openInlineEdit(60251,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
-        <td class="td-series-merged no-strike" rowspan="3"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">해고된 광부가 떨어뜨린 일지</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([60251,60252,60253],'해고된 광부가 떨어뜨린 일지')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([60251,60252,60253])">일괄 제외</button></td>
-        <td class="td-name"><span class="name-clickable" onclick="openDesc(60251)">일지-1</span><button class="btn-desc" onclick="openDesc(60251)">내용</button></td>
-        <td class="ie-cell" onclick="openInlineEdit(60251,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
-        <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60251,'place_sn',this)">5레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(60251,'place_region',this)">튜넬 광산</td><td class="ie-cell td-sn" onclick="openInlineEdit(60251,'place_stage',this)">10 스테이지</td>
-        <td class="ie-cell td-pct pct-rare" onclick="openInlineEdit(60251,'pct',this)">0.10%</td>
-        <td class="no-strike"><button class="btn-cut-toggle" onclick="toggleCut(60251)">제외</button></td>
-      </tr><tr class="tr-in-series">
         <td class="td-id no-strike">60252</td>
         <td class="ie-cell" onclick="openInlineEdit(60252,'cat',this)"><span class="badge badge-cat6">06 미확인 물품</span></td>
-        
+        <td class="td-series-merged no-strike" rowspan="2"><div style="font-size:12px;font-weight:600;color:#3949ab;line-height:1.4">해고된 광부가 떨어뜨린 일지</div><button style="display:block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #5c6bc0;background:#fff;color:#5c6bc0;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="openItemSeriesBatch([60252,60253],'해고된 광부가 떨어뜨린 일지')">획득조건 설정</button><button style="display:block;margin-top:4px;font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid #e53935;background:#fff;color:#e53935;cursor:pointer;font-family:inherit;white-space:nowrap" onclick="batchExcludeItems([60252,60253])">일괄 제외</button></td>
         <td class="td-name"><span class="name-clickable" onclick="openDesc(60252)">일지-2</span><button class="btn-desc" onclick="openDesc(60252)">내용</button></td>
         <td class="ie-cell" onclick="openInlineEdit(60252,'cond',this)"><span class="badge badge-cond-bc">전투 - 클리어</span></td>
         <td class="ie-cell td-sn no-strike" onclick="openInlineEdit(60252,'place_sn',this)">5레벨</td><td class="ie-cell td-place" onclick="openInlineEdit(60252,'place_region',this)">튜넬 광산</td><td class="ie-cell td-sn" onclick="openInlineEdit(60252,'place_stage',this)">10 스테이지</td>
@@ -5027,7 +4983,7 @@
   </div>
 
   <!-- 서브탭: 확정 드랍 수집품 패널 -->
-  <div id="simPanelAlways" class="sim-panel active">
+  <div id="simPanelAlways" class="sim-panel">
     <div class="table-box">
       <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
         <span id="alwaysCutCount" style="font-size:13px;color:#c62828;font-weight:600"></span>
@@ -5363,7 +5319,7 @@
 // ── 저장된 시안 복원 — HTML 파일 배포 시 상태 내장 ──────────────
 // saveToHtml() 이 생성한 파일에서만 null이 아님. 반드시 스크립트 최상단에 위치해야 함
 // (이후 코드가 localStorage를 읽기 전에 덮어써야 하므로)
-const __SAVED_STATE__ = {"plans":{"plans":[{"id":1,"name":"1안","removed":[60051,60061,60041,50164,50165,60171,60181,60182,60183,60184,60185,10011,50101,50111]}],"activePlanId":1,"nextPlanId":2},"edits":{"25":{"place":"[시7] 패럿도스 기계창 1스","pct":10000},"26":{"place":"[시8+] 패럿도스 기계창 전지역","cond":"BATTLE_CLEAR"},"27":{"place":"[시8+] 패럿도스 기계창 전지역","cond":"BATTLE_CLEAR"},"28":{"place":"[시8+] 패럿도스 기계창 전지역","cond":"BATTLE_CLEAR"},"29":{"place":"[시8+] 패럿도스 기계창 전지역"},"30":{"place":"[시8+] 패럿도스 기계창 전지역"},"33":{"place":"패럿도스 기계창"},"34":{"place":"패럿도스 기계창"},"35":{"place":"패럿도스 기계창"},"36":{"place":"패럿도스 기계창"},"55":{"place":"[시7] 패럿도스 기계창 4스","pct":10000},"74":{"place":"[시7] 패럿도스 기계창 4스","pct":10000},"79":{"place":"[시8] 로레스 항구 4스","pct":10000,"cond":"BATTLE_CLEAR"},"80":{"place":"[시8+] 로레스 항구 전지역","cond":"BATTLE_CLEAR"},"81":{"place":"[시8+] 로레스 항구 전지역","cond":"BATTLE_CLEAR"},"82":{"place":"로레스 항구"},"83":{"place":"로레스 항구"},"84":{"place":"로레스 항구"},"85":{"place":"로레스 항구"},"86":{"place":"로레스 항구"},"96":{"place":"로레스 항구"},"97":{"place":"로레스 항구"},"110":{"place":"[시8] 로레스 항구 10스","pct":10000},"111":{"place":"[시8] 로레스 항구 4스","pct":10000},"112":{"place":"[시8+] 로레스 항구 전지역"},"123":{"place":"[시8] 로레스 항구 10스","pct":10000},"129":{"place":"[시10] 피라타 섬 13스"},"130":{"place":"[시10] 로레스 항구 전지역"},"131":{"place":"[시9] 피라타 섬 4스","pct":10000},"132":{"place":"[시10] 피라타 섬 전지역"},"133":{"place":"[시10] 피라타 섬 전지역"},"137":{"place":"[시9] 피라타 섬 7스","pct":10000},"147":{"place":"[시9] 피라타 섬 1스","pct":10000},"158":{"place":"[시9] 피라타 섬 7스","pct":10000}},"excl":[],"defs":{"DROP_IN_IDLE":5,"IN_WORLD":10000,"CONTROL_ROOM_DIALOG":10000,"MERCENARY":10000,"SHOP":10000,"BATTLE_CLEAR_UNIT":5,"BATTLE_CLEAR":10,"STAGE_MAP_TOUCH":10000},"itemEdits":{"10001":{"pct":10},"10002":{"pct":10},"10003":{"pct":10},"10004":{"pct":10},"10005":{"pct":10},"10011":{"pct":10},"20011":{"pct":10},"30031":{"pct":10},"30032":{"pct":10},"30033":{"place":"[시6] 볼로에르 암시장 1스","pct":10000},"30034":{"pct":10},"30035":{"place":"[시6] 볼로에르 암시장 10스","pct":10000},"40001":{"pct":10},"40011":{"pct":10},"40012":{"pct":10},"40013":{"pct":10},"40014":{"pct":10},"40015":{"pct":10},"40016":{"pct":10},"40021":{"place":"[시7+] 볼로에르 암시장 전지역","pct":10},"40041":{"pct":10},"40042":{"pct":10},"40043":{"place":"[시5] 튜넬 광산 1스","pct":10000},"40051":{"pct":10},"50001":{"pct":10},"50002":{"pct":10},"50003":{"pct":10},"50011":{"pct":10},"50012":{"place":"[시1] 숨겨진 유적 1스","pct":10000},"50013":{"pct":10},"50021":{"pct":10},"50022":{"pct":10},"50023":{"pct":10},"50024":{"pct":10},"50031":{"pct":10},"50032":{"pct":10},"50033":{"pct":10},"50034":{"pct":10},"50041":{"pct":10},"50042":{"pct":10},"50043":{"pct":10},"50044":{"pct":10},"50045":{"pct":10},"50051":{"pct":10},"50052":{"pct":10},"50053":{"pct":10},"50054":{"pct":10},"50055":{"pct":10},"50071":{"pct":10},"50081":{"pct":10},"50091":{"pct":10},"50092":{"pct":10},"50093":{"pct":10},"50094":{"pct":10},"50101":{"pct":10},"50111":{"pct":10},"50131":{"pct":10},"50132":{"pct":10},"50133":{"pct":10},"50134":{"pct":10},"50141":{"pct":10},"50151":{"pct":10},"50152":{"pct":10},"50153":{"pct":10},"50154":{"pct":10},"50155":{"pct":10},"50156":{"pct":10},"50161":{"pct":10},"50162":{"place":"[시7+] 볼로에르 암시장 전지역","pct":10},"50163":{"pct":10},"50164":{"pct":10},"50165":{"pct":10},"50172":{"place":"[시3] 가렌숲 1스"},"50201":{"pct":10},"50202":{"pct":10},"50203":{"pct":10},"50204":{"pct":10},"50205":{"pct":10},"60001":{"pct":10},"60002":{"pct":10},"60003":{"pct":10},"60011":{"pct":10},"60012":{"pct":10},"60031":{"pct":10},"60041":{"pct":10},"60051":{"pct":10},"60061":{"pct":10},"60071":{"pct":10},"60081":{"pct":10000,"place":"[시3] 가렌숲 4스"},"60082":{"pct":10},"60083":{"pct":10},"60084":{"pct":10},"60091":{"pct":10},"60101":{"pct":10},"60102":{"pct":10},"60103":{"pct":10},"60104":{"pct":10},"60111":{"pct":10},"60112":{"pct":10},"60113":{"pct":10},"60116":{"pct":10},"60131":{"pct":10},"60132":{"pct":10},"60133":{"pct":10},"60134":{"place":"[시4] 포르테노 저택 4스","pct":10000},"60135":{"pct":10},"60136":{"pct":10},"60141":{"pct":10},"60142":{"pct":10},"60143":{"pct":10},"60151":{"pct":10},"60152":{"place":"[시5] 포르테노 저택 7스","pct":10},"60153":{"pct":10},"60161":{"pct":10},"60171":{"pct":10},"60181":{"pct":10},"60182":{"pct":10},"60183":{"pct":10},"60184":{"pct":10},"60185":{"pct":10},"60191":{"pct":10},"60192":{"pct":10},"60193":{"pct":10},"60194":{"pct":10},"60195":{"pct":10},"60211":{"pct":10},"60221":{"pct":10},"60222":{"pct":10},"60223":{"pct":10},"60224":{"pct":10},"60225":{"pct":10},"60233":{"cond":"BATTLE_CLEAR_UNIT","place":"[시4+] 가렌숲 10스","pct":5},"60251":{"pct":10},"60252":{"pct":10},"60253":{"pct":10},"60291":{"pct":10},"60292":{"pct":10},"60293":{"pct":10},"60294":{"pct":10},"60301":{"place":"[시6+] 튜넬 광산 전지역","pct":10},"70002":{"pct":10},"70016":{"pct":10},"70017":{"pct":10},"70018":{"pct":10},"70019":{"pct":10},"70021":{"pct":10},"70041":{"place":"[시1] 숨겨진 유적 전지역","pct":10},"70042":{"pct":10},"70043":{"pct":10},"70071":{"pct":10},"70081":{"pct":10},"70082":{"pct":10},"70083":{"pct":10},"70101":{"pct":10},"70102":{"pct":10},"70103":{"pct":10},"80001":{"pct":10},"80002":{"pct":10},"80003":{"pct":10},"80004":{"pct":10},"80005":{"pct":10}},"version":"candidate5-191c"}; // SAVED_STATE_MARKER
+const __SAVED_STATE__ = {"plans":{"plans":[{"id":1,"name":"1안","removed":[50001,50002,50003,50023,50132,50134,60161,60251,60201,60221,60222,60223,60224,60225,20021,20022,20023,20024,20025]}],"activePlanId":1,"nextPlanId":2},"edits":{"25":{"place":"[시7] 패럿도스 기계창 1스","pct":10000},"26":{"place":"[시8+] 패럿도스 기계창 전지역","cond":"BATTLE_CLEAR"},"27":{"place":"[시8+] 패럿도스 기계창 전지역","cond":"BATTLE_CLEAR"},"28":{"place":"[시8+] 패럿도스 기계창 전지역","cond":"BATTLE_CLEAR"},"29":{"place":"[시8+] 패럿도스 기계창 전지역"},"30":{"place":"[시8+] 패럿도스 기계창 전지역"},"33":{"place":"패럿도스 기계창"},"34":{"place":"패럿도스 기계창"},"35":{"place":"패럿도스 기계창"},"36":{"place":"패럿도스 기계창"},"55":{"place":"[시7] 패럿도스 기계창 4스","pct":10000},"74":{"place":"[시7] 패럿도스 기계창 4스","pct":10000},"79":{"place":"[시8] 로레스 항구 4스","pct":10000,"cond":"BATTLE_CLEAR"},"80":{"place":"[시8+] 로레스 항구 전지역","cond":"BATTLE_CLEAR"},"81":{"place":"[시8+] 로레스 항구 전지역","cond":"BATTLE_CLEAR"},"82":{"place":"로레스 항구"},"83":{"place":"로레스 항구"},"84":{"place":"로레스 항구"},"85":{"place":"로레스 항구"},"86":{"place":"로레스 항구"},"96":{"place":"로레스 항구"},"97":{"place":"로레스 항구"},"110":{"place":"[시8] 로레스 항구 10스","pct":10000},"111":{"place":"[시8] 로레스 항구 4스","pct":10000},"112":{"place":"[시8+] 로레스 항구 전지역"},"123":{"place":"[시8] 로레스 항구 10스","pct":10000},"129":{"place":"[시10] 피라타 섬 13스"},"130":{"place":"[시10] 로레스 항구 전지역"},"131":{"place":"[시9] 피라타 섬 4스","pct":10000},"132":{"place":"[시10] 피라타 섬 전지역"},"133":{"place":"[시10] 피라타 섬 전지역"},"137":{"place":"[시9] 피라타 섬 7스","pct":10000},"147":{"place":"[시9] 피라타 섬 1스","pct":10000},"158":{"place":"[시9] 피라타 섬 7스","pct":10000}},"excl":[],"defs":{"DROP_IN_IDLE":5,"IN_WORLD":10000,"CONTROL_ROOM_DIALOG":10000,"MERCENARY":10000,"SHOP":10000,"BATTLE_CLEAR_UNIT":5,"BATTLE_CLEAR":10,"STAGE_MAP_TOUCH":10000},"itemEdits":{"10001":{"pct":10},"10002":{"pct":10},"10003":{"pct":10},"10004":{"pct":10},"10005":{"pct":10},"10011":{"pct":10},"20011":{"pct":10},"30031":{"pct":10},"30032":{"pct":10},"30033":{"place":"[시6] 볼로에르 암시장 1스","pct":10000},"30034":{"pct":10},"30035":{"place":"[시6] 볼로에르 암시장 10스","pct":10000},"40001":{"pct":10},"40011":{"pct":10},"40012":{"pct":10},"40013":{"pct":10},"40014":{"pct":10},"40015":{"pct":10},"40016":{"pct":10},"40021":{"place":"[시7+] 볼로에르 암시장 전지역","pct":10},"40041":{"pct":10},"40042":{"pct":10},"40043":{"place":"[시5] 튜넬 광산 1스","pct":10000},"40051":{"pct":10},"50001":{"pct":10},"50002":{"pct":10},"50003":{"pct":10},"50011":{"pct":10},"50012":{"place":"[시1] 숨겨진 유적 1스","pct":10000},"50013":{"pct":10},"50021":{"pct":10},"50022":{"pct":10},"50023":{"pct":10},"50024":{"pct":10},"50031":{"pct":10},"50032":{"pct":10},"50033":{"pct":10},"50034":{"pct":10},"50041":{"pct":10},"50042":{"pct":10},"50043":{"pct":10},"50044":{"pct":10},"50045":{"pct":10},"50051":{"pct":10},"50052":{"pct":10},"50053":{"pct":10},"50054":{"pct":10},"50055":{"pct":10},"50071":{"pct":10},"50081":{"pct":10},"50091":{"pct":10},"50092":{"pct":10},"50093":{"pct":10},"50094":{"pct":10},"50101":{"pct":10},"50111":{"pct":10},"50131":{"pct":10},"50132":{"pct":10},"50133":{"pct":10},"50134":{"pct":10},"50141":{"pct":10},"50151":{"pct":10},"50152":{"pct":10},"50153":{"pct":10},"50154":{"pct":10},"50155":{"pct":10},"50156":{"pct":10},"50161":{"pct":10},"50162":{"place":"[시7+] 볼로에르 암시장 전지역","pct":10},"50163":{"pct":10},"50164":{"pct":10},"50165":{"pct":10},"50172":{"place":"[시3] 가렌숲 1스"},"50201":{"pct":10},"50202":{"pct":10},"50203":{"pct":10},"50204":{"pct":10},"50205":{"pct":10},"60001":{"pct":10},"60002":{"pct":10},"60003":{"pct":10},"60011":{"pct":10},"60012":{"pct":10},"60031":{"pct":10},"60041":{"pct":10},"60051":{"pct":10},"60061":{"pct":10},"60071":{"pct":10},"60081":{"pct":10000,"place":"[시3] 가렌숲 4스"},"60082":{"pct":10},"60083":{"pct":10},"60084":{"pct":10},"60091":{"pct":10},"60101":{"pct":10},"60102":{"pct":10},"60103":{"pct":10},"60104":{"pct":10},"60111":{"pct":10},"60112":{"pct":10},"60113":{"pct":10},"60116":{"pct":10},"60131":{"pct":10},"60132":{"pct":10},"60133":{"pct":10},"60134":{"place":"[시4] 포르테노 저택 4스","pct":10000},"60135":{"pct":10},"60136":{"pct":10},"60141":{"pct":10},"60142":{"pct":10},"60143":{"pct":10},"60151":{"pct":10},"60152":{"place":"[시5] 포르테노 저택 7스","pct":10},"60153":{"pct":10},"60161":{"pct":10},"60171":{"pct":10},"60181":{"pct":10},"60182":{"pct":10},"60183":{"pct":10},"60184":{"pct":10},"60185":{"pct":10},"60191":{"pct":10},"60192":{"pct":10},"60193":{"pct":10},"60194":{"pct":10},"60195":{"pct":10},"60211":{"pct":10},"60221":{"pct":10},"60222":{"pct":10},"60223":{"pct":10},"60224":{"pct":10},"60225":{"pct":10},"60233":{"cond":"BATTLE_CLEAR_UNIT","place":"[시4+] 가렌숲 10스","pct":5},"60251":{"pct":10},"60252":{"pct":10},"60253":{"pct":10},"60291":{"pct":10},"60292":{"pct":10},"60293":{"pct":10},"60294":{"pct":10},"60301":{"place":"[시6+] 튜넬 광산 전지역","pct":10},"70002":{"pct":10},"70016":{"pct":10},"70017":{"pct":10},"70018":{"pct":10},"70019":{"pct":10},"70021":{"pct":10},"70041":{"place":"[시1] 숨겨진 유적 전지역","pct":10},"70042":{"pct":10},"70043":{"pct":10},"70071":{"pct":10},"70081":{"pct":10},"70082":{"pct":10},"70083":{"pct":10},"70101":{"pct":10},"70102":{"pct":10},"70103":{"pct":10},"80001":{"pct":10},"80002":{"pct":10},"80003":{"pct":10},"80004":{"pct":10},"80005":{"pct":10}},"version":"candidate5-191c"}; // SAVED_STATE_MARKER
 if (__SAVED_STATE__) {
   try {
     const _s = __SAVED_STATE__;
@@ -7032,15 +6988,18 @@ async function saveToHtml() {
   }
 }
 
-function exportCollectionCSV() {
+function expandPlace(p) {
+  return p
+    .replace(/^\[시(\d+)\+\]/, '[시나리오 $1레벨 이상]')
+    .replace(/^\[시(\d+)\]/, '[시나리오 $1레벨]')
+    .replace(/(\d+)스$/, '$1스테이지');
+}
+
+// ── CSV 내보내기 (기존 변경) — 기존 수집품(ITEMS)의 현재 상태를 story_collection.csv 원본 구조 그대로 재구성 ──
+let __savedCsvFileHandle = null;
+async function exportExistingCSV() {
   const plan = getActivePlan();
   const itemMap = new Map(ITEMS.map(d => [d[0], d]));
-  function expandPlace(p) {
-    return p
-      .replace(/^\[시(\d+)\+\]/, '[시나리오 $1레벨 이상]')
-      .replace(/^\[시(\d+)\]/, '[시나리오 $1레벨]')
-      .replace(/(\d+)스$/, '$1스테이지');
-  }
   const lines = CSV_STRUCTURE.map(entry => {
     if (typeof entry === 'string') return entry;
     const id = entry;
@@ -7057,47 +7016,32 @@ function exportCollectionCSV() {
       '[1001, 1, 10]'
     ].join('\t');
   }).filter(l => l !== null);
-  const candForCsv = CANDIDATES.map((_,idx)=>idx).filter(idx => {
-    if (CAND_EXCLUDED.has(idx)) return false;
-    const c = CANDIDATES[idx];
-    if (!c) return false;
-    return candResolvedCatNum(c, idx) !== null;
-  });
-  if (candForCsv.length > 0) {
-    lines.push('');
-    candForCsv.forEach(idx => {
-      const c = CANDIDATES[idx];
-      const ed = CAND_EDITS[String(idx)] || {};
-      const catNum = candResolvedCatNum(c, idx);
-      const cond = ed.cond || 'BATTLE_CLEAR';
-      const place = ed.place || '';
-      const pct = candEffectivePct(idx);
-      lines.push([
-        '',
-        '',
-        catNum,
-        c.name,
-        '',
-        '[]',
-        'NONE',
-        '[]',
-        'SCOLLECT_CATEGORY_00' + catNum,
-        '',
-        '',
-        '',
-        expandPlace(place),
-        cond,
-        '',
-        pct,
-        '[1001, 1, 10]'
-      ].join('\t'));
-    });
+  const csvText = lines.join('\r\n') + '\r\n';
+
+  try {
+    if (window.showSaveFilePicker) {
+      if (!__savedCsvFileHandle) {
+        __savedCsvFileHandle = await window.showSaveFilePicker({
+          suggestedName: 'story_collection.csv',
+          types: [{ description: 'CSV file', accept: { 'text/csv': ['.csv'] } }],
+        });
+      }
+      const writable = await __savedCsvFileHandle.createWritable();
+      await writable.write(csvText);
+      await writable.close();
+    } else {
+      // File System Access API 미지원 브라우저용 대체 (다운로드 방식)
+      const blob = new Blob([csvText], { type: 'text/csv;charset=utf-8;' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'story_collection.csv';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+  } catch(e) {
+    if (e.name === 'AbortError') return; // 사용자가 저장 대화상자를 취소함
+    alert('CSV 저장 실패: ' + e.message);
   }
-  const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = 'story_collection.csv';
-  a.click(); URL.revokeObjectURL(url);
 }
 
 // ── 초기 렌더 ──
@@ -7184,7 +7128,8 @@ function getActivePlan() {
 
 function renderPlanTabs() {
   document.getElementById('topActionBar').innerHTML =
-    `<button class="btn-tab-bar-act btn-tab-csv" onclick="exportCollectionCSV()">CSV 내보내기</button>
+    `<button class="btn-tab-bar-act btn-tab-csv" onclick="exportExistingCSV()">CSV 내보내기 (기존 변경)</button>
+    <button class="btn-tab-bar-act btn-tab-csv" disabled title="추후 추가 예정" style="opacity:.45;cursor:not-allowed">CSV 내보내기 (신규 변경)</button>
     <button class="btn-tab-bar-act btn-tab-save" onclick="saveToHtml()" title="${getGithubToken() ? 'GitHub에 바로 배포됩니다' : '로컬 파일로 저장됩니다'}">저장${getGithubToken() ? ' 🔗' : ''}</button>
     <button class="btn-tab-bar-act" onclick="configureGithubPush()" title="GitHub 자동 배포 연결/해제" style="background:rgba(120,120,120,.2);border:1px solid rgba(120,120,120,.4)">⚙ GitHub</button>`;
 }
