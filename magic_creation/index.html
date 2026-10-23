@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko"><head>
+<html lang="ko" style="--cv-top: 161px;"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>마법 제작</title>
@@ -301,36 +301,83 @@ table.dtbl{border-collapse:collapse;width:100%;min-width:500px}
 .mat-dp-opt:hover,.mat-dp-opt:focus,.mat-dp-opt.mat-dp-cur{background:color-mix(in srgb,var(--ac) 12%,transparent)}
 .mat-dp-empty{padding:10px 14px;color:var(--mu);font-size:12px}
 
-/* ── 시뮬 - 재화 가치 ── */
-.cv-badge{font-size:12px;font-weight:700;color:var(--ac);background:color-mix(in srgb,var(--ac) 10%,transparent);border-radius:6px;padding:3px 10px}
-.cv-note{font-size:13px;color:var(--mu);background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:12px 16px;line-height:1.7;margin-bottom:14px}
-.cv-note b{color:var(--tx)}
-.cv-ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px 24px}
-.cv-ctl .cv-t{display:block;font-size:12px;font-weight:700;color:var(--mu);margin-bottom:6px}
-.cv-ctl .cv-h{font-size:11.5px;color:var(--mu);margin-top:6px;line-height:1.5}
-.cv-ctl .row{gap:6px}
-.cv-ctl .cv-am{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;font-weight:700;color:var(--tx);cursor:pointer;user-select:none}
-.cv-ctl .cv-am input{width:15px;height:15px;accent-color:var(--ac);cursor:pointer}
-.cv-ctl .cv-am span{font-weight:600;color:var(--mu);font-size:12px}
-.cv-qty{width:104px;height:28px;text-align:right;background:var(--sf);border:1px solid var(--bd2);border-radius:5px;color:var(--tx);font:inherit;font-size:13px;font-variant-numeric:tabular-nums;padding:0 8px}
-.cv-qty:focus{outline:none;border-color:var(--ac)}
+/* ── 시뮬 - 재화 가치 (A안: 왼쪽 기준 패널 + 합계 타일 + 품목 표) ── */
+.cv2{display:grid;grid-template-columns:304px minmax(0,1fr);gap:16px;align-items:start}
+.cv2-side{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:16px 18px;position:sticky;top:var(--cv-top,150px)}
+.cv2-h{font-size:15px;font-weight:800;margin-bottom:2px}
+.cv2-l{display:block;font-size:12px;font-weight:700;color:var(--mu);margin:15px 0 6px}
+.cv2-l small{font-weight:500}
+.cv2-side select.sel{width:100%;font-size:13px;font-weight:700;padding:8px 30px 8px 12px}
+.cv2-side select.sel:disabled{opacity:.5;cursor:default}
+.cv2-seg{display:flex;background:var(--sf2);border:1px solid var(--bd);border-radius:9px;padding:3px;gap:3px}
+.cv2-seg button{flex:1;border:0;background:none;border-radius:7px;padding:7px 8px;font:inherit;font-size:12.5px;font-weight:700;color:var(--mu);cursor:pointer}
+.cv2-seg button.on{background:var(--sf);color:var(--tx);box-shadow:0 1px 3px rgba(20,30,50,.18)}
+.cv2-chips{display:flex;flex-wrap:wrap;gap:6px}
+.cv2-chips button{min-width:46px;padding:6px 8px;border:1px solid var(--bd2);border-radius:8px;background:var(--sf);font:inherit;font-size:12.5px;font-weight:700;line-height:1.25;color:var(--mu);cursor:pointer;font-variant-numeric:tabular-nums}
+.cv2-chips button:hover{border-color:var(--ac);color:var(--ac)}
+.cv2-chips button.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.cv2-chips button em{display:block;font-size:10px;font-style:normal;font-weight:700;opacity:.9}
+.cv2-tog{display:flex;align-items:center;gap:10px;margin-top:16px;cursor:pointer;user-select:none}
+.cv2-tog input{position:absolute;opacity:0;width:0;height:0}
+.cv2-sw{width:38px;height:22px;border-radius:999px;background:var(--bd2);position:relative;flex:none;transition:background .15s}
+.cv2-sw:after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .15s;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.cv2-tog input:checked + .cv2-sw{background:var(--ac)}
+.cv2-tog input:checked + .cv2-sw:after{transform:translateX(16px)}
+.cv2-tog input:focus-visible + .cv2-sw{outline:2px solid var(--ac);outline-offset:2px}
+.cv2-tt{font-size:13px;font-weight:700;line-height:1.3}
+.cv2-tt small{display:block;font-size:11.5px;font-weight:500;color:var(--mu)}
+.cv2-hint{font-size:12px;color:var(--mu);margin-top:16px;padding:10px 12px;background:var(--sf2);border-radius:8px;line-height:1.65}
+.cv2-hint b{color:var(--tx)}
+.cv-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:14px}
+.cv-card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px 18px}
+.cv-card .cv-ct{font-size:12.5px;font-weight:700;color:var(--mu)}
+.cv-card .cv-cn{font-size:30px;line-height:1.2;font-weight:800;color:var(--tx);font-variant-numeric:tabular-nums;margin-top:2px}
+.cv-card .cv-cn span{font-size:13px;font-weight:600;color:var(--mu)}
+.cv-card .cv-cs{font-size:11.5px;color:var(--mu);margin-top:2px}
+.cv-card.cv-hi{background:color-mix(in srgb,var(--ac) 10%,var(--sf));border-color:color-mix(in srgb,var(--ac) 30%,var(--bd))}
+.cv-card.cv-hi .cv-cn{color:var(--ac)}
+.cv2-panel{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.cv2-ph{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.cv2-ph h3{font-size:15px;font-weight:800}
+.cv2-ph span{font-size:12px;color:var(--mu)}
+.cv2-lk{appearance:none;border:0;background:none;color:var(--ac);font:inherit;font-size:12px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:0}
+#cv-main{min-width:640px}
+#cv-main th{font-size:11.5px;font-weight:700;color:var(--mu);text-align:right;padding:0 10px 8px;letter-spacing:.02em;border:0;background:none}
+#cv-main td{padding:9px 10px;border-top:1px solid var(--bd);text-align:right;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;vertical-align:middle}
+#cv-main th.cv-l,#cv-main td.cv-nm{text-align:left}
+#cv-main td.cv-nm{font-size:14.5px;font-weight:800;white-space:normal}
+#cv-main td.cv-nm small{display:block;font-size:11.5px;font-weight:500;color:var(--mu);margin-top:1px}
+#cv-main tr.cv-grp td{background:var(--sf2);text-align:left;font-size:11.5px;font-weight:800;color:var(--mu);letter-spacing:.03em;padding:6px 10px}
+#cv-main tr.cv-grp td span{float:right;font-weight:500;letter-spacing:0}
+#cv-main td.cv-na{color:var(--mu);font-weight:600;opacity:.75}
+.cv-key{display:inline-block;padding:2px 11px;border-radius:999px;background:color-mix(in srgb,var(--ac) 12%,transparent);color:var(--ac);font-size:13.5px;font-weight:800}
+.cv-key.cv-na{background:none;color:var(--mu);font-weight:600}
+.cv2-bar{display:inline-block;vertical-align:middle;width:86px;height:7px;border-radius:4px;background:var(--sf2);border:1px solid var(--bd);margin-left:10px;overflow:hidden}
+.cv2-bar i{display:block;height:100%;background:var(--ac);border-radius:4px}
+.cv-qty{width:100px;height:30px;text-align:right;background:var(--sf);border:1px solid var(--bd2);border-radius:7px;color:var(--tx);font:inherit;font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums;padding:0 9px}
+.cv-qty:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 2px color-mix(in srgb,var(--ac) 20%,transparent)}
+.cv-badge,.cv-badge2{font-size:12px;font-weight:700;color:var(--ac);background:color-mix(in srgb,var(--ac) 10%,transparent);border-radius:6px;padding:3px 10px;display:inline-block;margin-bottom:8px}
+.cv2-basis{margin-top:14px;font-size:12px;color:var(--mu)}
+.cv2-basis summary{cursor:pointer;font-weight:700;color:var(--mu);list-style:none;display:inline-block}
+.cv2-basis summary::-webkit-details-marker{display:none}
+.cv2-basis summary:after{content:" ▾"}
+.cv2-basis[open] summary:after{content:" ▴"}
+.cv2-basis .cv-note{margin:10px 0 8px;font-size:12.5px;color:var(--mu);line-height:1.7}
+.cv2-basis .cv-note b{color:var(--tx)}
+.cv-foot{font-size:12px;color:var(--mu);line-height:1.8}
 .dtbl td.cv-l,.dtbl th.cv-l{text-align:left}
 .dtbl td.cv-nm{text-align:left;font-weight:700;color:var(--tx);white-space:nowrap}
-.dtbl td.cv-src{text-align:left;font-size:12px;color:var(--mu);white-space:nowrap}
-.dtbl td.cv-key{font-weight:800;color:var(--ac);font-size:14px}
-.dtbl td.cv-na,.dtbl td.cv-key.cv-na{color:var(--fa);font-weight:600}
-.dtbl td.cv-cv{text-align:left;font-size:12px;color:var(--mu);white-space:nowrap}
 .dtbl tr.cv-grp td{background:color-mix(in srgb,var(--pu) 7%,transparent);text-align:left;font-size:12px;font-weight:800;color:var(--mu);letter-spacing:.05em;padding:5px 10px}
 .dtbl .cv-cur{background:color-mix(in srgb,var(--ac) 9%,transparent)}
 .dtbl th.cv-cur{color:var(--ac)}
-.cv-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:14px 0 4px}
-.cv-card{background:var(--sf);border:1px solid var(--bd);border-top:4px solid var(--ac);border-radius:10px;padding:12px 16px}
-.cv-card .cv-ct{font-size:12.5px;font-weight:700;color:var(--mu)}
-.cv-card .cv-cn{font-size:24px;font-weight:800;color:var(--tx);font-variant-numeric:tabular-nums;margin-top:3px}
-.cv-card .cv-cn span{font-size:12px;font-weight:600;color:var(--mu)}
-.cv-card .cv-cs{font-size:11.5px;color:var(--mu);margin-top:3px}
-.cv-h3{font-size:15px;font-weight:800;color:var(--tx);margin:6px 0 10px}
-.cv-foot{font-size:12px;color:var(--mu);line-height:1.8;margin-top:10px}
+.dtbl td.cv-na{color:var(--fa);font-weight:600}
+.cv2-tabs{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.cv2-tabs button{flex:1;min-width:190px;text-align:left;border:1px solid var(--bd);background:var(--sf);border-radius:12px;padding:11px 16px;font:inherit;font-size:15px;font-weight:800;color:var(--mu);cursor:pointer}
+.cv2-tabs button:hover{border-color:var(--ac)}
+.cv2-tabs button small{display:block;font-size:11.5px;font-weight:500;margin-top:2px;color:var(--mu)}
+.cv2-tabs button.on{background:color-mix(in srgb,var(--ac) 10%,var(--sf));border-color:var(--ac);color:var(--ac)}
+@media (max-width:980px){.cv2{grid-template-columns:minmax(0,1fr)}.cv2-side{position:static}}
+.cv2-main{min-width:0}
 </style>
 </head>
 <body>
@@ -1604,12 +1651,12 @@ table.dtbl{border-collapse:collapse;width:100%;min-width:500px}
   <div class="sim-layout">
     <nav class="sim-tabnav">
       <button class="sim-tabn" data-pane="summary">요약</button>
-      <button class="sim-tabn on" data-pane="settings">드랍 확률 설정</button>
+      <button class="sim-tabn" data-pane="settings">드랍 확률 설정</button>
       <button class="sim-tabn" data-pane="sim">시뮬 - 재료 드랍</button>
-      <button class="sim-tabn" data-pane="valsim">시뮬 - 재화 가치</button>
+      <button class="sim-tabn on" data-pane="valsim">시뮬 - 재화 가치</button>
     </nav>
     <div class="sim-content">
-      <div class="sim-pane on" id="sim-pane-settings">
+      <div class="sim-pane" id="sim-pane-settings">
   <!-- 드랍 확률 설정 -->
   <div class="foldable">
     <div style="display:flex;gap:6px;padding:14px 16px 0">
@@ -1809,51 +1856,48 @@ table.dtbl{border-collapse:collapse;width:100%;min-width:500px}
     </div></div>
   </div>
       </div><!-- /sim-pane-sim -->
-      <div class="sim-pane" id="sim-pane-valsim">
-  <div class="row" style="margin-bottom:12px">
-    <h2 class="sec-h" style="margin:0">시뮬 - 재화 가치</h2>
-    <span class="cv-badge">데이터 기준: 시나리오 · 카이로스 보상표</span>
-  </div>
-  <div class="cv-note">
-    마법상자 품목의 지급량을 입력하면, 그 양을 얻기 위해 <b>시나리오 / 던전을 몇 판 돌아야 하는지</b>로 환산합니다.
-    룬 문양과 유물 파편은 <b>분해 기준</b>(1판에서 나온 룬·아티팩트를 전부 분해)으로 계산하며, 룬 몇 개 · 아티팩트 몇 개를 만들 수 있는지도 함께 보여줍니다.
-  </div>
-  <div class="craft-section">
-    <div class="craft-section-hd">획득 기준</div>
-    <div class="craft-section-body">
-      <div class="cv-ctl">
-        <div>
-          <span class="cv-t">시나리오 (마나석 · 마법가루 · 별의 숨결 · 미지의 소환서)</span>
-          <div class="row">
-            <select class="sel" id="cv-lv" onchange="cvSet('lv',this.value)"><option value="1">레벨 1</option><option value="2">레벨 2</option><option value="3" selected="">레벨 3</option><option value="4">레벨 4</option><option value="5">레벨 5</option><option value="6">레벨 6</option><option value="7">레벨 7</option><option value="8">레벨 8</option><option value="9">레벨 9</option><option value="10">레벨 10</option></select>
-            <select class="sel" id="cv-st" onchange="cvSet('st',this.value)">
-              <option value="s4">4스테이지</option><option value="boss">보스 스테이지</option>
-            </select>
-            <select class="sel" id="cv-rg" onchange="cvSet('rg',this.value)" title="보스 스테이지 = 선택한 지역의 마지막 스테이지"><option value="CONMEO">숨겨진 유적 (1-10)</option><option value="GAREN" selected="">가렌숲 (3-13)</option><option value="PORTENO">포르테노 저택 (4-13)</option><option value="TUNEL">튜넬 광산 (5-13)</option><option value="VOLEUR">볼로에르 암시장 (6-13)</option><option value="LORESS">로레스 항구 (8-13)</option><option value="PIRATA">피라타 섬 (9-10)</option><option value="DEVIL">데빌스라커 (10-10)</option></select>
+      <div class="sim-pane on" id="sim-pane-valsim">
+  <div class="cv2-tabs" id="cv-box"><button type="button" class="on" onclick="cvSet('box','unk')">미지의 마법상자<small>Lv3 · 룬 1층 · 아티 1층 · 속성 1층</small></button><button type="button" class="" onclick="cvSet('box','myst')">신비의 마법상자<small>Lv6 · 룬 1층 · 아티 1층 · 속성 1층</small></button><button type="button" class="" onclick="cvSet('box','leg')">전설의 마법상자<small>Lv10 · 룬 5층 · 아티 3층 · 속성 5층</small></button></div>
+  <div class="cv2">
+    <aside class="cv2-side">
+      <h3 class="cv2-h">획득 기준</h3>
+      <span class="cv2-l">시나리오 스테이지</span>
+      <div class="cv2-seg" id="cv-seg"><button type="button" class="on" onclick="cvSet('st','s4')">4스테이지</button><button type="button" class="" onclick="cvSet('st','boss')">보스 스테이지</button></div>
+      <span class="cv2-l">지역 <small>(마지막 스테이지 기준)</small></span>
+      <select class="sel" id="cv-rg" onchange="cvSet('rg',this.value)" title="보스 스테이지 = 선택한 지역의 마지막 스테이지" disabled=""><option value="CONMEO">숨겨진 유적 · 1-10</option><option value="GAREN" selected="">가렌숲 · 3-13</option><option value="PORTENO">포르테노 저택 · 4-13</option><option value="TUNEL">튜넬 광산 · 5-13</option><option value="VOLEUR">볼로에르 암시장 · 6-13</option><option value="LORESS">로레스 항구 · 8-13</option><option value="PIRATA">피라타 섬 · 9-10</option><option value="DEVIL">데빌스라커 · 10-10</option></select>
+      <span class="cv2-l">시나리오 레벨</span>
+      <div class="cv2-chips" id="cv-lvs"><button type="button" class="" onclick="cvSet('lv',1)">1</button><button type="button" class="" onclick="cvSet('lv',2)">2</button><button type="button" class="on" onclick="cvSet('lv',3)">3</button><button type="button" class="" onclick="cvSet('lv',4)">4</button><button type="button" class="" onclick="cvSet('lv',5)">5</button><button type="button" class="" onclick="cvSet('lv',6)">6</button><button type="button" class="" onclick="cvSet('lv',7)">7</button><button type="button" class="" onclick="cvSet('lv',8)">8</button><button type="button" class="" onclick="cvSet('lv',9)">9</button><button type="button" class="" onclick="cvSet('lv',10)">10</button></div>
+      <label class="cv2-tog"><input type="checkbox" id="cv-am" onchange="cvSet('am',this.checked)"><span class="cv2-sw"></span><span class="cv2-tt">아메리아 축복 적용<small>마나석 +20% (전투 보상)</small></span></label>
+      <span class="cv2-l" style="margin-top:20px">룬 던전 층 <small>(문양)</small></span>
+      <div class="cv2-chips" id="cv-rfs"><button type="button" class="on" onclick="cvSet('rf',1)">1층</button><button type="button" class="" onclick="cvSet('rf',2)">2층</button><button type="button" class="" onclick="cvSet('rf',3)">3층</button><button type="button" class="" onclick="cvSet('rf',4)">4층</button><button type="button" class="" onclick="cvSet('rf',5)">5층</button></div>
+      <span class="cv2-l">아티팩트 던전 층 <small>(유물 파편)</small></span>
+      <div class="cv2-chips" id="cv-afs"><button type="button" class="on" onclick="cvSet('af',1)">1층</button><button type="button" class="" onclick="cvSet('af',2)">2층</button><button type="button" class="" onclick="cvSet('af',3)">3층</button></div>
+      <span class="cv2-l">속성 던전 층 <small>(마력의 정수)</small></span>
+      <div class="cv2-chips" id="cv-ats"><button type="button" class="on" onclick="cvSet('at',1)">1층</button><button type="button" class="" onclick="cvSet('at',2)">2층</button><button type="button" class="" onclick="cvSet('at',3)">3층</button><button type="button" class="" onclick="cvSet('at',4)">4층</button><button type="button" class="" onclick="cvSet('at',5)">5층</button></div>
+      <div class="cv2-hint" id="cv-hint">시나리오 1판 소모 에너지 <b>3</b> · 4스테이지 (모든 지역 동일)<br>룬 던전 1판 <b>4</b> · 아티팩트 던전 1판 <b>5</b> · 속성 던전 1판 <b>3</b> 에너지<br>문양 종류는 던전마다 1종 · 룬 제작 문양 4성 4개 / 5성 15개 / 6성 40개 · 아티팩트 1개 제작 = 유물 파편 100개</div>
+    </aside>
+    <div class="cv2-main">
+      <div class="cv-cards" id="cv-sum"><div class="cv-card"><div class="cv-ct">시나리오 품목 가치</div><div class="cv-cn">≈ 0 <span>에너지</span></div><div class="cv-cs">마나석 · 마법가루 · 별의 숨결 · 소환서</div></div><div class="cv-card"><div class="cv-ct">장비 재료 가치</div><div class="cv-cn">≈ 0 <span>에너지</span></div><div class="cv-cs">룬 문양 · 유물 파편</div></div><div class="cv-card"><div class="cv-ct">속성 정수 가치</div><div class="cv-cn">≈ 0 <span>에너지</span></div><div class="cv-cs">하급 ~ 최상급 마력의 정수</div></div><div class="cv-card cv-hi"><div class="cv-ct">상자 전체 가치</div><div class="cv-cn">≈ 0 <span>에너지</span></div><div class="cv-cs">품목마다 따로 모은다고 가정한 에너지 합계</div></div></div>
+      <div class="cv2-panel">
+        <div class="cv2-ph"><h3 id="cv-ptitle">품목별 환산 · 미지의 마법상자</h3><span>지급량을 입력하면 바로 계산돼요 · <button type="button" class="cv2-lk" onclick="cvReset()">지급량 초기화</button></span></div>
+        <div class="tbl-wrap" style="margin-bottom:0"><table class="dtbl" id="cv-main" data-sig="unk|3|s4|GAREN|false|1|1|1"><thead><tr><th class="cv-l" style="width:30%">아이템</th><th>상자 지급량</th><th>1판 획득량</th><th>필요 판수</th><th style="width:25%">필요 에너지</th></tr></thead><tbody><tr class="cv-grp"><td colspan="5">기본 재화<span>시나리오 Lv3 · 4스테이지</span></td></tr><tr data-k="mana"><td class="cv-nm">마나석<small data-c="sub"></small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="mana" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">3,751</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr data-k="dust"><td class="cv-nm">마법가루<small data-c="sub"></small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="dust" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">33</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr data-k="e1"><td class="cv-nm">하급 별의 숨결<small data-c="sub"></small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="e1" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">1.05</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr data-k="e2"><td class="cv-nm">중급 별의 숨결<small data-c="sub"></small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="e2" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">0.75</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr data-k="e3"><td class="cv-nm">상급 별의 숨결<small data-c="sub"></small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="e3" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr"><span class="cv-na">없음</span></td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr class="cv-grp"><td colspan="5">소환서<span>시나리오 Lv3 · 4스테이지</span></td></tr><tr data-k="unk"><td class="cv-nm">미지의 소환서<small data-c="sub"></small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="unk" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">0.75</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr class="cv-grp"><td colspan="5">장비 재료<span>룬 던전 1층 · 아티팩트 던전 1층 (분해 기준)</span></td></tr><tr data-k="mun"><td class="cv-nm">룬 문양<small data-c="sub"></small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="mun" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">3.51</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr data-k="pyeon"><td class="cv-nm">유물 파편<small data-c="sub"></small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="pyeon" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">1.82</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr class="cv-grp"><td colspan="5">속성 정수<span>속성 던전 1층 (마력의 던전)</span></td></tr><tr data-k="a1"><td class="cv-nm">하급 마력의 정수<small data-c="sub"></small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="a1" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">4.5</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr data-k="a2"><td class="cv-nm">중급 마력의 정수<small data-c="sub">하급 5개 → 중급 1개 환산 포함</small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="a2" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">1</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr data-k="a3"><td class="cv-nm">상급 마력의 정수<small data-c="sub">중급 5개 → 상급 1개 환산 포함</small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="a3" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">0.2</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr><tr data-k="a4"><td class="cv-nm">최상급 마력의 정수<small data-c="sub">상급 5개 → 최상급 1개 환산 포함</small></td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="a4" value="" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td data-c="pr">0.04</td><td data-c="runs"><span class="cv-key cv-na">–</span></td><td data-c="en" class="cv-na">–</td></tr></tbody></table></div>
+        <details class="cv2-basis">
+          <summary>계산 기준 자세히 보기</summary>
+          <div class="cv-note">
+            <span class="cv-badge">데이터 기준: 시나리오 · 카이로스 보상표</span><br>
+            마법상자 품목의 지급량을 입력하면, 그 양을 얻기 위해 <b>시나리오 / 던전을 몇 판 돌아야 하는지</b>로 환산합니다.
+            룬 문양과 유물 파편은 <b>분해 기준</b>(1판에서 나온 룬·아티팩트를 전부 분해)으로 계산하며, 룬 몇 개 · 아티팩트 몇 개를 만들 수 있는지도 함께 보여줍니다.
           </div>
-          <label class="cv-am"><input type="checkbox" id="cv-am" onchange="cvSet('am',this.checked)"> 아메리아 축복 적용 <span>(마나석 +20%)</span></label>
-          <div class="cv-h" id="cv-h-scn">1판 소모 에너지 3 · 가렌숲 마지막 스테이지(3-13) 보스</div>
-        </div>
-        <div>
-          <span class="cv-t">룬 던전 (룬 문양)</span>
-          <div class="row"><select class="sel" id="cv-rf" onchange="cvSet('rf',this.value)"><option value="1">1층</option><option value="2">2층</option><option value="3" selected="">3층</option><option value="4">4층</option><option value="5">5층</option></select></div>
-          <div class="cv-h" id="cv-h-rune">1판 소모 에너지 5 · 문양 종류는 던전마다 1종 · 룬 제작 문양 4성 4개 / 5성 15개 / 6성 40개</div>
-        </div>
-        <div>
-          <span class="cv-t">아티팩트 던전 (유물 파편)</span>
-          <div class="row"><select class="sel" id="cv-af" onchange="cvSet('af',this.value)"><option value="1">1층</option><option value="2">2층</option><option value="3" selected="">3층</option></select></div>
-          <div class="cv-h" id="cv-h-arti">1판 소모 에너지 7 · 아티팩트 1개 제작 = 유물 파편 100개</div>
-        </div>
+          <div class="cv-foot" id="cv-foot">· 상자 탭(미지 / 신비 / 전설)마다 시나리오 레벨, 룬 · 아티팩트 · 속성 던전 층, 상자 지급량을 따로 저장합니다. 4스테이지 / 보스, 지역, 아메리아는 세 탭이 함께 씁니다.<br>· 시나리오 수치는 1판 <b>기대값</b>이라 실제로는 편차가 있습니다. 기본 재화는 스테이지 보상표, 소환서는 메인 + 서브2 보상을 합산한 값입니다.<br>· 보스 스테이지는 선택한 지역의 <b>마지막 스테이지</b> 기준입니다 (숨겨진 유적 · 피라타 섬 · 데빌스라커 10스테이지, 그 외 13스테이지). 레벨 10 은 영웅 보스라 에너지 7, 마법가루 · 소환서 보상표도 영웅 보스 기준입니다.<br>· 아메리아 축복 체크 시 <b>마나석만 +20%</b> 가산합니다 (server_const 의 AMERIA_INCREASE_RATE_BATTLE_REWARD_MANA = 200000, 100만 = 100% 기준으로 해석).<br>· 룬 문양 / 유물 파편은 룬 던전·아티팩트 던전 1판(메인 1 + 서브1 75%×2)에서 나온 룬·아티팩트를 전부 분해한다고 가정했습니다. 효과 재료와 스킬석은 제외했습니다.<br>· 속성 정수는 마력의 던전 1판(메인 1 + 서브1 50%×2 + 서브2 50%×1)의 기대값입니다. 하급 5개 → 중급 1개, 중급 5개 → 상급 1개, 상급 5개 → 최상급 1개로 환산해 중급 · 상급 · 최상급 판수에 반영했습니다.<br>· 판수가 "불가"인 칸은 해당 레벨 / 스테이지 / 층의 보상표에 그 아이템이 없는 경우입니다.</div>
+        </details>
+      </div>
+      <div class="cv2-panel">
+        <div class="cv2-ph"><h3>레벨 / 층별 필요 판수 비교</h3><span>위에 입력한 지급량 기준</span></div>
+        <div class="tbl-wrap" id="cv-cmp-scn"><table class="dtbl"><thead><tr><th class="cv-l" style="min-width:120px">시나리오 4스테이지 · 필요 판수</th><th class="">Lv1</th><th class="">Lv2</th><th class="cv-cur">Lv3</th><th class="">Lv4</th><th class="">Lv5</th><th class="">Lv6</th><th class="">Lv7</th><th class="">Lv8</th><th class="">Lv9</th><th class="">Lv10</th></tr></thead><tbody><tr class="cv-grp"><td colspan="11">기본 재화</td></tr><tr><td class="cv-nm">마나석 ×0</td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr><td class="cv-nm">마법가루 ×0</td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr><td class="cv-nm">하급 별의 숨결 ×0</td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr><td class="cv-nm">중급 별의 숨결 ×0</td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr><td class="cv-nm">상급 별의 숨결 ×0</td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr class="cv-grp"><td colspan="11">소환서</td></tr><tr><td class="cv-nm">미지의 소환서 ×0</td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr><td class="cv-nm" style="color:var(--mu);font-weight:600">1판 소모 에너지</td><td class="" style="color:var(--mu)">2</td><td class="" style="color:var(--mu)">2</td><td class="cv-cur" style="color:var(--mu)">3</td><td class="" style="color:var(--mu)">3</td><td class="" style="color:var(--mu)">4</td><td class="" style="color:var(--mu)">4</td><td class="" style="color:var(--mu)">5</td><td class="" style="color:var(--mu)">5</td><td class="" style="color:var(--mu)">6</td><td class="" style="color:var(--mu)">6</td></tr></tbody></table></div>
+        <div class="tbl-wrap" id="cv-cmp-dg" style="margin-bottom:0"><table class="dtbl"><thead><tr><th class="cv-l" style="min-width:120px">던전 · 필요 판수</th><th>1층</th><th>2층</th><th>3층</th><th>4층</th><th>5층</th></tr></thead><tbody><tr class="cv-grp"><td colspan="6">장비 재료 (분해 기준)</td></tr><tr><td class="cv-nm">룬 문양 ×0 (룬 던전)</td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr><td class="cv-nm">유물 파편 ×0 (아티 던전)</td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td><span class="cv-na">–</span></td><td><span class="cv-na">–</span></td></tr><tr class="cv-grp"><td colspan="6">속성 정수 (속성 던전 · 마력의 던전)</td></tr><tr><td class="cv-nm">하급 마력의 정수 ×0</td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr><td class="cv-nm">중급 마력의 정수 ×0</td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr><td class="cv-nm">상급 마력의 정수 ×0</td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr><td class="cv-nm">최상급 마력의 정수 ×0</td><td class="cv-cur"><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td><td class=""><span class="cv-na">–</span></td></tr><tr><td class="cv-nm" style="color:var(--mu);font-weight:600">1판 소모 에너지 (룬 / 아티 / 속성)</td><td style="color:var(--mu)">4 / 5 / 3</td><td style="color:var(--mu)">5 / 6 / 3</td><td style="color:var(--mu)">5 / 7 / 4</td><td style="color:var(--mu)">6 / – / 4</td><td style="color:var(--mu)">6 / – / 5</td></tr></tbody></table></div>
       </div>
     </div>
   </div>
-  <div class="tbl-wrap" style="margin-bottom:0"><table class="dtbl" id="cv-main"><thead><tr><th class="cv-l">아이템</th><th>상자 지급량</th><th class="cv-l">획득처</th><th>1판 획득량</th><th>필요 판수</th><th>필요 에너지</th><th class="cv-l">제작 환산</th></tr></thead><tbody><tr class="cv-grp"><td colspan="7">기본 재화</td></tr><tr><td class="cv-nm">마나석</td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="mana" value="50,000" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td class="cv-src">시나리오 Lv3 · 가렌숲 3-13 보스</td><td>3,983</td><td class="cv-key">13판</td><td class="">38</td><td class="cv-cv"></td></tr><tr><td class="cv-nm">마법가루</td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="dust" value="20" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td class="cv-src">시나리오 Lv3 · 가렌숲 3-13 보스</td><td>12.4</td><td class="cv-key">1.6판</td><td class="">4.8</td><td class="cv-cv"></td></tr><tr><td class="cv-nm">하급 별의 숨결</td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="e1" value="30" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td class="cv-src">시나리오 Lv3 · 가렌숲 3-13 보스</td><td>1</td><td class="cv-key">30판</td><td class="">90</td><td class="cv-cv"></td></tr><tr><td class="cv-nm">중급 별의 숨결</td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="e2" value="5" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td class="cv-src">시나리오 Lv3 · 가렌숲 3-13 보스</td><td>1</td><td class="cv-key">5판</td><td class="">15</td><td class="cv-cv"></td></tr><tr><td class="cv-nm">상급 별의 숨결</td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="e3" value="2" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td class="cv-src">시나리오 Lv3 · 가렌숲 3-13 보스</td><td><span class="cv-na">없음</span></td><td class="cv-key cv-na">불가</td><td class="cv-na">–</td><td class="cv-cv"></td></tr><tr class="cv-grp"><td colspan="7">소환서</td></tr><tr><td class="cv-nm">미지의 소환서</td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="unk" value="5" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td class="cv-src">시나리오 Lv3 · 가렌숲 3-13 보스</td><td>0.75</td><td class="cv-key">6.7판</td><td class="">20</td><td class="cv-cv"></td></tr><tr class="cv-grp"><td colspan="7">장비 재료</td></tr><tr><td class="cv-nm">룬 문양</td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="mun" value="10" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td class="cv-src">룬 던전 3층 (분해 기준)</td><td>6.01</td><td class="cv-key">1.7판</td><td class="">8.3</td><td class="cv-cv">4성 룬 2.5개 · 5성 0.67개 · 6성 0.25개</td></tr><tr><td class="cv-nm">유물 파편</td><td><input class="cv-qty" type="text" inputmode="decimal" data-k="pyeon" value="10" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString('ko-KR'):''"></td><td class="cv-src">아티팩트 던전 3층 (분해 기준)</td><td>5.43</td><td class="cv-key">1.8판</td><td class="">13</td><td class="cv-cv">아티팩트 0.1개</td></tr></tbody></table></div>
-  <div class="cv-cards" id="cv-sum"><div class="cv-card"><div class="cv-ct">시나리오 품목 가치 합산</div><div class="cv-cn">≈ 168 <span>에너지</span></div><div class="cv-cs">마나석 · 마법가루 · 별의 숨결 · 미지의 소환서 · 드랍 없는 품목 1개 제외</div></div><div class="cv-card"><div class="cv-ct">장비 재료 가치 합산</div><div class="cv-cn">≈ 21 <span>에너지</span></div><div class="cv-cs">룬 문양 · 유물 파편</div></div><div class="cv-card"><div class="cv-ct">상자 전체 가치</div><div class="cv-cn">≈ 189 <span>에너지</span></div><div class="cv-cs">품목마다 따로 모은다고 가정한 에너지 합계</div></div></div>
-  <div class="sep"></div>
-  <h3 class="cv-h3">레벨 / 층별 필요 판수 비교 <span style="font-size:12px;font-weight:600;color:var(--mu)">(위에 입력한 지급량 기준)</span></h3>
-  <div class="tbl-wrap" id="cv-cmp-scn"><table class="dtbl"><thead><tr><th class="cv-l" style="min-width:120px">시나리오 가렌숲 보스 (3-13) · 필요 판수</th><th class="">Lv1</th><th class="">Lv2</th><th class="cv-cur">Lv3</th><th class="">Lv4</th><th class="">Lv5</th><th class="">Lv6</th><th class="">Lv7</th><th class="">Lv8</th><th class="">Lv9</th><th class="">Lv10</th></tr></thead><tbody><tr class="cv-grp"><td colspan="11">기본 재화</td></tr><tr><td class="cv-nm">마나석 ×50,000</td><td class="" title="1판 2,207개 · 에너지 45">23</td><td class="" title="1판 2,432개 · 에너지 41">21</td><td class="cv-cur" title="1판 3,983개 · 에너지 38">13</td><td class="" title="1판 4,320개 · 에너지 35">12</td><td class="" title="1판 6,208개 · 에너지 32">8.1</td><td class="" title="1판 6,656개 · 에너지 30">7.5</td><td class="" title="1판 8,880개 · 에너지 28">5.6</td><td class="" title="1판 9,441개 · 에너지 26">5.3</td><td class="" title="1판 12,001개 · 에너지 25">4.2</td><td class="" title="1판 15,570개 · 에너지 22">3.2</td></tr><tr><td class="cv-nm">마법가루 ×20</td><td class="" title="1판 6.75개 · 에너지 5.9">3</td><td class="" title="1판 7.5개 · 에너지 5.3">2.7</td><td class="cv-cur" title="1판 12.4개 · 에너지 4.8">1.6</td><td class="" title="1판 13.5개 · 에너지 4.4">1.5</td><td class="" title="1판 19.5개 · 에너지 4.1">1</td><td class="" title="1판 21개 · 에너지 3.8">1</td><td class="" title="1판 28.1개 · 에너지 3.6">0.7</td><td class="" title="1판 30개 · 에너지 3.3">0.7</td><td class="" title="1판 38.3개 · 에너지 3.1">0.5</td><td class="" title="1판 49.9개 · 에너지 2.8">0.4</td></tr><tr><td class="cv-nm">하급 별의 숨결 ×30</td><td class="" title="1판 2.4개 · 에너지 25">13</td><td class="" title="1판 0.7개 · 에너지 86">43</td><td class="cv-cur" title="1판 1개 · 에너지 90">30</td><td class="" title="1판 0.8개 · 에너지 113">38</td><td class="" title="1판 1.1개 · 에너지 109">27</td><td class="" title="1판 0.9개 · 에너지 133">33</td><td class="" title="1판 0.7개 · 에너지 214">43</td><td class="" title="1판 0.75개 · 에너지 200">40</td><td class="" title="1판 0.55개 · 에너지 327">55</td><td class="" title="1판 0.45개 · 에너지 467">67</td></tr><tr><td class="cv-nm">중급 별의 숨결 ×5</td><td class="" title="이 기준에서는 드랍 없음"><span class="cv-na">불가</span></td><td class="" title="1판 0.7개 · 에너지 14">7.1</td><td class="cv-cur" title="1판 1개 · 에너지 15">5</td><td class="" title="1판 1.4개 · 에너지 11">3.6</td><td class="" title="1판 0.5개 · 에너지 40">10</td><td class="" title="1판 0.7개 · 에너지 29">7.1</td><td class="" title="1판 0.7개 · 에너지 36">7.1</td><td class="" title="1판 0.65개 · 에너지 38">7.7</td><td class="" title="1판 0.65개 · 에너지 46">7.7</td><td class="" title="1판 0.75개 · 에너지 47">6.7</td></tr><tr><td class="cv-nm">상급 별의 숨결 ×2</td><td class="" title="이 기준에서는 드랍 없음"><span class="cv-na">불가</span></td><td class="" title="이 기준에서는 드랍 없음"><span class="cv-na">불가</span></td><td class="cv-cur" title="이 기준에서는 드랍 없음"><span class="cv-na">불가</span></td><td class="" title="이 기준에서는 드랍 없음"><span class="cv-na">불가</span></td><td class="" title="1판 0.3개 · 에너지 27">6.7</td><td class="" title="1판 0.35개 · 에너지 23">5.7</td><td class="" title="1판 0.45개 · 에너지 22">4.4</td><td class="" title="1판 0.55개 · 에너지 18">3.6</td><td class="" title="1판 0.65개 · 에너지 18">3.1</td><td class="" title="1판 0.9개 · 에너지 16">2.2</td></tr><tr class="cv-grp"><td colspan="11">소환서</td></tr><tr><td class="cv-nm">미지의 소환서 ×5</td><td class="" title="1판 0.5개 · 에너지 20">10</td><td class="" title="1판 0.5개 · 에너지 20">10</td><td class="cv-cur" title="1판 0.75개 · 에너지 20">6.7</td><td class="" title="1판 0.75개 · 에너지 20">6.7</td><td class="" title="1판 1개 · 에너지 20">5</td><td class="" title="1판 1개 · 에너지 20">5</td><td class="" title="1판 1.25개 · 에너지 20">4</td><td class="" title="1판 1.25개 · 에너지 20">4</td><td class="" title="1판 1.5개 · 에너지 20">3.3</td><td class="" title="1판 1.75개 · 에너지 20">2.9</td></tr><tr><td class="cv-nm" style="color:var(--mu);font-weight:600">1판 소모 에너지</td><td class="" style="color:var(--mu)">2</td><td class="" style="color:var(--mu)">2</td><td class="cv-cur" style="color:var(--mu)">3</td><td class="" style="color:var(--mu)">3</td><td class="" style="color:var(--mu)">4</td><td class="" style="color:var(--mu)">4</td><td class="" style="color:var(--mu)">5</td><td class="" style="color:var(--mu)">5</td><td class="" style="color:var(--mu)">6</td><td class="" style="color:var(--mu)">7</td></tr></tbody></table></div>
-  <div class="tbl-wrap" id="cv-cmp-dg"><table class="dtbl"><thead><tr><th class="cv-l" style="min-width:120px">던전 · 필요 판수 (분해 기준)</th><th>1층</th><th>2층</th><th>3층</th><th>4층</th><th>5층</th></tr></thead><tbody><tr class="cv-grp"><td colspan="6">장비 재료</td></tr><tr><td class="cv-nm">룬 문양 ×10 (룬 던전)</td><td class="" title="1판 3.51개 · 에너지 11">2.8</td><td class="" title="1판 4.51개 · 에너지 11">2.2</td><td class="cv-cur" title="1판 6.01개 · 에너지 8.3">1.7</td><td class="" title="1판 7.06개 · 에너지 8.5">1.4</td><td class="" title="1판 8.63개 · 에너지 7">1.2</td></tr><tr><td class="cv-nm">유물 파편 ×10 (아티 던전)</td><td class="" title="1판 1.82개 · 에너지 27">5.5</td><td class="" title="1판 3.59개 · 에너지 17">2.8</td><td class="cv-cur" title="1판 5.43개 · 에너지 13">1.8</td><td><span class="cv-na">–</span></td><td><span class="cv-na">–</span></td></tr><tr><td class="cv-nm" style="color:var(--mu);font-weight:600">1판 소모 에너지 (룬 / 아티)</td><td style="color:var(--mu)">4 / 5</td><td style="color:var(--mu)">5 / 6</td><td style="color:var(--mu)">5 / 7</td><td style="color:var(--mu)">6 / –</td><td style="color:var(--mu)">6 / –</td></tr></tbody></table></div>
-  <div class="cv-foot" id="cv-foot">· 시나리오 수치는 1판 <b>기대값</b>이라 실제로는 편차가 있습니다. 기본 재화는 스테이지 보상표, 소환서는 메인 + 서브2 보상을 합산한 값입니다.<br>· 보스 스테이지는 선택한 지역의 <b>마지막 스테이지</b> 기준입니다 (숨겨진 유적 · 피라타 섬 · 데빌스라커 10스테이지, 그 외 13스테이지). 레벨 10 은 영웅 보스라 에너지 7, 마법가루 · 소환서 보상표도 영웅 보스 기준입니다.<br>· 아메리아 축복 체크 시 <b>마나석만 +20%</b> 가산합니다 (server_const 의 AMERIA_INCREASE_RATE_BATTLE_REWARD_MANA = 200000, 100만 = 100% 기준으로 해석).<br>· 룬 문양 / 유물 파편은 룬 던전·아티팩트 던전 1판(메인 1 + 서브1 75%×2)에서 나온 룬·아티팩트를 전부 분해한다고 가정했습니다. 효과 재료와 스킬석은 제외했습니다.<br>· 판수가 "불가"인 칸은 해당 레벨 / 스테이지의 보상표에 그 아이템이 없는 경우입니다.</div>
       </div><!-- /sim-pane-valsim -->
     </div><!-- /sim-content -->
   </div><!-- /sim-layout -->
@@ -3705,34 +3749,55 @@ const CV_REGIONS = [                      // 보스 = 지역의 마지막 스테
 function cvReg(){ return CV_REGIONS.find(r => r.k === CVS.rg) || CV_REGIONS[1]; }
 const CV_E_RUNE = [4,5,5,6,6];
 const CV_E_ARTI = [5,6,7];
+const CV_E_ATTR = [3,3,4,4,5];             // 속성 던전(마력의 던전) 1판 소모 에너지, 층별
+const CV_ATTR = [[4.5,0.1,0,0],[3.5,1.3,0,0],[1,3.85,0.1,0],[1.15,2.735,1.2,0],[1,0.4,3.905,0.05]];
+                                           // 속성 던전 층별 1판 기대 획득량 [하급, 중급, 상급, 최상급] 마력의 정수 (메인 + 서브1 + 서브2)
 const CV_ITEMS = [
-  {k:'mana', n:'마나석',         g:'기본 재화', src:'scn',   def:50000},
-  {k:'dust', n:'마법가루',       g:'기본 재화', src:'scn',   def:20},
-  {k:'e1',   n:'하급 별의 숨결', g:'기본 재화', src:'scn',   def:30},
-  {k:'e2',   n:'중급 별의 숨결', g:'기본 재화', src:'scn',   def:5},
-  {k:'e3',   n:'상급 별의 숨결', g:'기본 재화', src:'scn',   def:2},
-  {k:'unk',  n:'미지의 소환서',  g:'소환서',    src:'scn',   def:5},
-  {k:'mun',  n:'룬 문양',        g:'장비 재료', src:'rune',  def:10},
-  {k:'pyeon',n:'유물 파편',      g:'장비 재료', src:'arti',  def:10}
+  {k:'mana', n:'마나석',         g:'기본 재화', src:'scn'},
+  {k:'dust', n:'마법가루',       g:'기본 재화', src:'scn'},
+  {k:'e1',   n:'하급 별의 숨결', g:'기본 재화', src:'scn'},
+  {k:'e2',   n:'중급 별의 숨결', g:'기본 재화', src:'scn'},
+  {k:'e3',   n:'상급 별의 숨결', g:'기본 재화', src:'scn'},
+  {k:'unk',  n:'미지의 소환서',  g:'소환서',    src:'scn'},
+  {k:'mun',  n:'룬 문양',        g:'장비 재료', src:'rune'},
+  {k:'pyeon',n:'유물 파편',      g:'장비 재료', src:'arti'},
+  {k:'a1',   n:'하급 마력의 정수',   g:'속성 정수', src:'attr'},
+  {k:'a2',   n:'중급 마력의 정수',   g:'속성 정수', src:'attr'},
+  {k:'a3',   n:'상급 마력의 정수',   g:'속성 정수', src:'attr'},
+  {k:'a4',   n:'최상급 마력의 정수', g:'속성 정수', src:'attr'}
 ];
-const CVS = { lv:5, st:'s4', rg:'GAREN', am:false, rf:3, af:3, q:{} };
-CV_ITEMS.forEach(it => { CVS.q[it.k] = it.def; });
+// 상자별 탭 : 시나리오 레벨 / 룬·아티팩트·속성 던전 층 기본값 (탭마다 따로 저장, 지급량은 비워서 시작)
+const CV_BOXES = [
+  {k:'unk',  n:'미지의 마법상자', lv:3,  rf:1, af:1, at:1},
+  {k:'myst', n:'신비의 마법상자', lv:6,  rf:1, af:1, at:1},
+  {k:'leg',  n:'전설의 마법상자', lv:10, rf:5, af:3, at:5}
+];
+const CVS = { box:'unk', st:'s4', rg:'GAREN', am:false, b:{} };      // st / rg / am 은 전체 공통, 나머지는 상자 탭별
+function cvBlankQ(){ const q = {}; CV_ITEMS.forEach(it => { q[it.k] = 0; }); return q; }
+CV_BOXES.forEach(b => { CVS.b[b.k] = { lv:b.lv, rf:b.rf, af:b.af, at:b.at, q:cvBlankQ() }; });
+['lv','rf','af','at','q'].forEach(p => Object.defineProperty(CVS, p, { get(){ return CVS.b[CVS.box][p]; }, set(v){ CVS.b[CVS.box][p] = v; }, enumerable:false }));
 (function(){
   try {
     const t = localStorage.getItem('cvState');
     if (t) {
       const o = JSON.parse(t);
-      if (o.lv >= 1 && o.lv <= 10) CVS.lv = o.lv|0;
+      if (CV_BOXES.some(b => b.k === o.box)) CVS.box = o.box;
       if (o.st === 's4' || o.st === 'boss') CVS.st = o.st;
       if (CV_REGIONS.some(r => r.k === o.rg)) CVS.rg = o.rg;
       if (o.am === true || o.am === false) CVS.am = o.am;
-      if (o.rf >= 1 && o.rf <= 5) CVS.rf = o.rf|0;
-      if (o.af >= 1 && o.af <= 3) CVS.af = o.af|0;
-      if (o.q) Object.keys(CVS.q).forEach(k => { if (o.q[k] !== undefined && !isNaN(+o.q[k])) CVS.q[k] = +o.q[k]; });
+      if (o.b) CV_BOXES.forEach(bx => {
+        const sv = o.b[bx.k], d = CVS.b[bx.k];
+        if (!sv) return;
+        if (sv.lv >= 1 && sv.lv <= 10) d.lv = sv.lv|0;
+        if (sv.rf >= 1 && sv.rf <= 5) d.rf = sv.rf|0;
+        if (sv.af >= 1 && sv.af <= 3) d.af = sv.af|0;
+        if (sv.at >= 1 && sv.at <= 5) d.at = sv.at|0;
+        if (sv.q) Object.keys(d.q).forEach(k => { if (sv.q[k] !== undefined && !isNaN(+sv.q[k]) && +sv.q[k] >= 0) d.q[k] = +sv.q[k]; });
+      });
     }
   } catch(e){}
 })();
-function cvPersist(){ try { localStorage.setItem('cvState', JSON.stringify(CVS)); } catch(e){} }
+function cvPersist(){ try { localStorage.setItem('cvState', JSON.stringify({ box:CVS.box, st:CVS.st, rg:CVS.rg, am:CVS.am, b:CVS.b })); } catch(e){} }
 
 function cvTrim(x, d){ return String(+(+x).toFixed(d)); }
 function cvNum(x){            // 1판 획득량 표기
@@ -3759,6 +3824,12 @@ function cvAt(it, idx){       // idx : 레벨-1 (시나리오) 또는 층-1 (던
     const i = idx === undefined ? CVS.rf - 1 : idx;
     return { pr: CV.mun[i], E: CV_E_RUNE[i], src: '룬 던전 ' + (i+1) + '층 (분해 기준)' };
   }
+  if (it.src === 'attr') {      // 하급 5개 → 중급 1개, 중급 5개 → 상급 1개, 상급 5개 → 최상급 1개 환산 포함
+    const i = idx === undefined ? CVS.at - 1 : idx, g = CV_ATTR[i];
+    const a3 = g[2] + g[1] / 5 + g[0] / 25;
+    const pr = it.k === 'a1' ? g[0] : it.k === 'a2' ? g[1] + g[0] / 5 : it.k === 'a3' ? a3 : g[3] + a3 / 5;
+    return { pr: pr, E: CV_E_ATTR[i], src: '속성 던전 ' + (i+1) + '층 (마력의 던전)' };
+  }
   const i = idx === undefined ? CVS.af - 1 : idx;
   return { pr: CV.pyeon[i], E: CV_E_ARTI[i], src: '아티팩트 던전 ' + (i+1) + '층 (분해 기준)' };
 }
@@ -3769,7 +3840,7 @@ function cvConv(it, q){
 }
 
 function cvSet(k, v){
-  if (k === 'st' || k === 'rg') CVS[k] = v; else if (k === 'am') CVS.am = !!v; else CVS[k] = +v;
+  if (k === 'st' || k === 'rg' || k === 'box') CVS[k] = v; else if (k === 'am') CVS.am = !!v; else CVS[k] = +v;
   cvPersist(); cvRender();
 }
 function cvQty(inp){
@@ -3778,47 +3849,93 @@ function cvQty(inp){
   cvPersist(); cvRenderResult();
 }
 
-function cvBuildSelects(){
-  const opt = (n, label, cur) => '<option value="' + n + '"' + (n === cur ? ' selected' : '') + '>' + label + '</option>';
-  let h = ''; for (let i = 1; i <= 10; i++) h += opt(i, '레벨 ' + i, CVS.lv);
-  document.getElementById('cv-lv').innerHTML = h;
-  h = ''; for (let i = 1; i <= 5; i++) h += opt(i, i + '층', CVS.rf);
-  document.getElementById('cv-rf').innerHTML = h;
-  h = ''; for (let i = 1; i <= 3; i++) h += opt(i, i + '층', CVS.af);
-  document.getElementById('cv-af').innerHTML = h;
-  document.getElementById('cv-st').value = CVS.st;
-  h = ''; CV_REGIONS.forEach(r => { h += opt(r.k, r.n + ' (' + r.lab + ')', CVS.rg); });
+function cvBuildCtl(){
+  const boss = CVS.st === 'boss';
+  const btn = (on, act, label) => '<button type="button" class="' + (on ? 'on' : '') + '" onclick="' + act + '">' + label + '</button>';
+  document.getElementById('cv-box').innerHTML = CV_BOXES.map(bx => {
+    const sv = CVS.b[bx.k];
+    return '<button type="button" class="' + (bx.k === CVS.box ? 'on' : '') + '" onclick="cvSet(\'box\',\'' + bx.k + '\')">' + bx.n +
+      '<small>Lv' + sv.lv + ' · 룬 ' + sv.rf + '층 · 아티 ' + sv.af + '층 · 속성 ' + sv.at + '층</small></button>';
+  }).join('');
+  document.getElementById('cv-seg').innerHTML =
+    btn(CVS.st === 's4', "cvSet('st','s4')", '4스테이지') + btn(boss, "cvSet('st','boss')", '보스 스테이지');
+  let h = ''; CV_REGIONS.forEach(r => { h += '<option value="' + r.k + '"' + (r.k === CVS.rg ? ' selected' : '') + '>' + r.n + ' · ' + r.lab + '</option>'; });
   const rgSel = document.getElementById('cv-rg');
-  rgSel.innerHTML = h; rgSel.disabled = CVS.st !== 'boss';
+  rgSel.innerHTML = h; rgSel.disabled = !boss;
+  h = ''; for (let i = 1; i <= 10; i++) h += btn(i === CVS.lv, "cvSet('lv'," + i + ")", i + (boss && i === 10 ? '<em>영웅</em>' : ''));
+  document.getElementById('cv-lvs').innerHTML = h;
+  h = ''; for (let i = 1; i <= 5; i++) h += btn(i === CVS.rf, "cvSet('rf'," + i + ")", i + '층');
+  document.getElementById('cv-rfs').innerHTML = h;
+  h = ''; for (let i = 1; i <= 3; i++) h += btn(i === CVS.af, "cvSet('af'," + i + ")", i + '층');
+  document.getElementById('cv-afs').innerHTML = h;
+  h = ''; for (let i = 1; i <= 5; i++) h += btn(i === CVS.at, "cvSet('at'," + i + ")", i + '층');
+  document.getElementById('cv-ats').innerHTML = h;
   document.getElementById('cv-am').checked = CVS.am;
 }
+function cvReset(){
+  CVS.q = cvBlankQ();
+  cvPersist();
+  const m = document.getElementById('cv-main'); if (m) m.dataset.sig = '';
+  cvRenderResult();
+}
 
-// 입력칸을 다시 그리지 않고 결과만 갱신 (타이핑 중 포커스 유지)
+// 선택 기준이 바뀔 때만 표를 새로 그리고, 지급량 입력 중에는 값 칸만 갱신 (타이핑 중 포커스 유지)
+function cvScnLabel(){
+  const rg = cvReg();
+  return 'Lv' + CVS.lv + ' · ' + (CVS.st === 'boss' ? rg.n + ' ' + rg.lab + ' 보스' + (CVS.lv === 10 ? '(영웅)' : '') : '4스테이지');
+}
 function cvRenderResult(){
   const main = document.getElementById('cv-main');
   if (!main) return;
-  let h = '<thead><tr><th class="cv-l">아이템</th><th>상자 지급량</th><th class="cv-l">획득처</th><th>1판 획득량</th><th>필요 판수</th><th>필요 에너지</th><th class="cv-l">제작 환산</th></tr></thead><tbody>';
-  let eScn = 0, eDg = 0, skipS = 0, skipD = 0, lastG = null;
-  CV_ITEMS.forEach(it => {
-    if (it.g !== lastG) { h += '<tr class="cv-grp"><td colspan="7">' + it.g + '</td></tr>'; lastG = it.g; }
+  const sig = [CVS.box, CVS.lv, CVS.st, CVS.rg, CVS.am, CVS.rf, CVS.af, CVS.at].join('|');
+  if (main.dataset.sig !== sig) {
+    const grpSrc = { '기본 재화': '시나리오 ' + cvScnLabel(), '소환서': '시나리오 ' + cvScnLabel(),
+                     '장비 재료': '룬 던전 ' + CVS.rf + '층 · 아티팩트 던전 ' + CVS.af + '층 (분해 기준)',
+                     '속성 정수': '속성 던전 ' + CVS.at + '층 (마력의 던전)' };
+    let h = '<thead><tr><th class="cv-l" style="width:30%">아이템</th><th>상자 지급량</th><th>1판 획득량</th><th>필요 판수</th><th style="width:25%">필요 에너지</th></tr></thead><tbody>';
+    let lastG = null;
+    CV_ITEMS.forEach(it => {
+      if (it.g !== lastG) { h += '<tr class="cv-grp"><td colspan="5">' + it.g + '<span>' + grpSrc[it.g] + '</span></td></tr>'; lastG = it.g; }
+      const q = CVS.q[it.k] || 0;
+      h += '<tr data-k="' + it.k + '"><td class="cv-nm">' + it.n + '<small data-c="sub"></small></td>' +
+        '<td><input class="cv-qty" type="text" inputmode="decimal" data-k="' + it.k + '" value="' + (q ? q.toLocaleString('ko-KR') : '') + '" placeholder="0" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString(\'ko-KR\'):\'\'"></td>' +
+        '<td data-c="pr"></td><td data-c="runs"></td><td data-c="en"></td></tr>';
+    });
+    main.innerHTML = h + '</tbody>';
+    main.dataset.sig = sig;
+  }
+  const rows = CV_ITEMS.map(it => {
     const a = cvAt(it), q = CVS.q[it.k] || 0;
     let runs = null, en = null;
-    if (q > 0 && a.pr > 0) { runs = q / a.pr; en = runs * a.E; if (it.src === 'scn') eScn += en; else eDg += en; }
-    else if (q > 0) { if (it.src === 'scn') skipS++; else skipD++; }
-    h += '<tr><td class="cv-nm">' + it.n + '</td>' +
-      '<td><input class="cv-qty" type="text" inputmode="decimal" data-k="' + it.k + '" value="' + (q ? q.toLocaleString('ko-KR') : '') + '" oninput="cvQty(this)" onblur="this.value=CVS.q[this.dataset.k]?CVS.q[this.dataset.k].toLocaleString(\'ko-KR\'):\'\'"></td>' +
-      '<td class="cv-src">' + a.src + '</td>' +
-      '<td>' + (a.pr > 0 ? cvNum(a.pr) : '<span class="cv-na">없음</span>') + '</td>' +
-      '<td class="cv-key' + (runs === null ? ' cv-na' : '') + '">' + (runs !== null ? cvRuns(runs) + '판' : (q > 0 ? '불가' : '–')) + '</td>' +
-      '<td class="' + (en === null ? 'cv-na' : '') + '">' + (en !== null ? cvEn(en) : '–') + '</td>' +
-      '<td class="cv-cv">' + (q > 0 ? cvConv(it, q) : '') + '</td></tr>';
+    if (q > 0 && a.pr > 0) { runs = q / a.pr; en = runs * a.E; }
+    return { it, a, q, runs, en };
   });
-  main.innerHTML = h + '</tbody>';
+  const maxEn = Math.max(1e-9, ...rows.map(r => r.en || 0));
+  const eSum = { scn:0, dg:0, attr:0 }, skip = { scn:0, dg:0, attr:0 };
+  const grp = it => it.src === 'scn' ? 'scn' : it.src === 'attr' ? 'attr' : 'dg';
+  const attrNote = { a2: '하급 5개 → 중급 1개 환산 포함', a3: '중급 5개 → 상급 1개 환산 포함', a4: '상급 5개 → 최상급 1개 환산 포함' };
+  rows.forEach(r => {
+    const it = r.it, tr = main.querySelector('tr[data-k="' + it.k + '"]');
+    if (!tr) return;
+    if (r.en !== null) eSum[grp(it)] += r.en;
+    else if (r.q > 0) skip[grp(it)]++;
+    const sub = it.k === 'mana' && CVS.am ? '아메리아 +' + Math.round(CV_AMERIA_MANA * 100) + '% 적용' : (attrNote[it.k] || (r.q > 0 ? cvConv(it, r.q) : ''));
+    tr.querySelector('[data-c="sub"]').textContent = sub;
+    const pr = tr.querySelector('[data-c="pr"]');
+    pr.innerHTML = r.a.pr > 0 ? cvNum(r.a.pr) : '<span class="cv-na">없음</span>';
+    const rn = tr.querySelector('[data-c="runs"]');
+    rn.innerHTML = r.runs !== null ? '<span class="cv-key">' + cvRuns(r.runs) + '판</span>' : '<span class="cv-key cv-na">' + (r.q > 0 ? '불가' : '–') + '</span>';
+    const en = tr.querySelector('[data-c="en"]');
+    en.className = r.en === null ? 'cv-na' : '';
+    en.innerHTML = r.en !== null ? cvEn(r.en) + '<span class="cv2-bar"><i style="width:' + Math.max(2, Math.round(r.en / maxEn * 100)) + '%"></i></span>' : '–';
+  });
   const skipTxt = n => n ? ' · 드랍 없는 품목 ' + n + '개 제외' : '';
+  const tile = (t, v, sub, hi) => '<div class="cv-card' + (hi ? ' cv-hi' : '') + '"><div class="cv-ct">' + t + '</div><div class="cv-cn">≈ ' + cvEn(v) + ' <span>에너지</span></div><div class="cv-cs">' + sub + '</div></div>';
   document.getElementById('cv-sum').innerHTML =
-    '<div class="cv-card"><div class="cv-ct">시나리오 품목 가치 합산</div><div class="cv-cn">≈ ' + cvEn(eScn) + ' <span>에너지</span></div><div class="cv-cs">마나석 · 마법가루 · 별의 숨결 · 미지의 소환서' + skipTxt(skipS) + '</div></div>' +
-    '<div class="cv-card"><div class="cv-ct">장비 재료 가치 합산</div><div class="cv-cn">≈ ' + cvEn(eDg) + ' <span>에너지</span></div><div class="cv-cs">룬 문양 · 유물 파편' + skipTxt(skipD) + '</div></div>' +
-    '<div class="cv-card"><div class="cv-ct">상자 전체 가치</div><div class="cv-cn">≈ ' + cvEn(eScn + eDg) + ' <span>에너지</span></div><div class="cv-cs">품목마다 따로 모은다고 가정한 에너지 합계</div></div>';
+    tile('시나리오 품목 가치', eSum.scn, '마나석 · 마법가루 · 별의 숨결 · 소환서' + skipTxt(skip.scn)) +
+    tile('장비 재료 가치', eSum.dg, '룬 문양 · 유물 파편' + skipTxt(skip.dg)) +
+    tile('속성 정수 가치', eSum.attr, '하급 ~ 최상급 마력의 정수' + skipTxt(skip.attr)) +
+    tile('상자 전체 가치', eSum.scn + eSum.dg + eSum.attr, '품목마다 따로 모은다고 가정한 에너지 합계', true);
   cvRenderCmp();
 }
 
@@ -3846,39 +3963,51 @@ function cvRenderCmp(){
   for (let i = 0; i < 10; i++) h += '<td class="' + (i + 1 === CVS.lv ? 'cv-cur' : '') + '" style="color:var(--mu)">' + (CVS.st === 'boss' ? CV.boss[CVS.rg][i].E : CV_E_SCN[i]) + '</td>';
   document.getElementById('cv-cmp-scn').innerHTML = h + '</tr></tbody></table>';
 
-  h = '<table class="dtbl"><thead><tr><th class="cv-l" style="min-width:120px">던전 · 필요 판수 (분해 기준)</th>';
+  h = '<table class="dtbl"><thead><tr><th class="cv-l" style="min-width:120px">던전 · 필요 판수</th>';
   for (let i = 1; i <= 5; i++) h += '<th>' + i + '층</th>';
-  h += '</tr></thead><tbody><tr class="cv-grp"><td colspan="6">장비 재료</td></tr>';
-  dgIt.forEach(it => {
-    const n = it.src === 'rune' ? 5 : 3, curI = it.src === 'rune' ? CVS.rf : CVS.af;
-    h += '<tr><td class="cv-nm">' + it.n + ' ×' + (CVS.q[it.k] || 0).toLocaleString('ko-KR') + (it.src === 'rune' ? ' (룬 던전)' : ' (아티 던전)') + '</td>';
-    for (let i = 0; i < 5; i++) h += i < n ? cell(it, i, i + 1 === curI) : '<td><span class="cv-na">–</span></td>';
-    h += '</tr>';
-  });
-  h += '<tr><td class="cv-nm" style="color:var(--mu);font-weight:600">1판 소모 에너지 (룬 / 아티)</td>';
-  for (let i = 0; i < 5; i++) h += '<td style="color:var(--mu)">' + CV_E_RUNE[i] + (i < 3 ? ' / ' + CV_E_ARTI[i] : ' / –') + '</td>';
+  h += '</tr></thead><tbody><tr class="cv-grp"><td colspan="6">장비 재료 (분해 기준)</td></tr>';
+  const dgRow = it => {
+    const n = it.src === 'arti' ? 3 : 5, curI = it.src === 'rune' ? CVS.rf : it.src === 'arti' ? CVS.af : CVS.at;
+    const tag = it.src === 'rune' ? ' (룬 던전)' : it.src === 'arti' ? ' (아티 던전)' : '';
+    let r = '<tr><td class="cv-nm">' + it.n + ' ×' + (CVS.q[it.k] || 0).toLocaleString('ko-KR') + tag + '</td>';
+    for (let i = 0; i < 5; i++) r += i < n ? cell(it, i, i + 1 === curI) : '<td><span class="cv-na">–</span></td>';
+    return r + '</tr>';
+  };
+  dgIt.filter(it => it.src !== 'attr').forEach(it => { h += dgRow(it); });
+  h += '<tr class="cv-grp"><td colspan="6">속성 정수 (속성 던전 · 마력의 던전)</td></tr>';
+  dgIt.filter(it => it.src === 'attr').forEach(it => { h += dgRow(it); });
+  h += '<tr><td class="cv-nm" style="color:var(--mu);font-weight:600">1판 소모 에너지 (룬 / 아티 / 속성)</td>';
+  for (let i = 0; i < 5; i++) h += '<td style="color:var(--mu)">' + CV_E_RUNE[i] + ' / ' + (i < 3 ? CV_E_ARTI[i] : '–') + ' / ' + CV_E_ATTR[i] + '</td>';
   document.getElementById('cv-cmp-dg').innerHTML = h + '</tr></tbody></table>';
 }
 
 function cvRender(){
-  cvBuildSelects();
-  const boss = CVS.st === 'boss', rg = cvReg();
-  const s = boss ? CV.boss[CVS.rg][CVS.lv - 1].E : CV_E_SCN[CVS.lv - 1];
-  document.getElementById('cv-h-scn').textContent = '1판 소모 에너지 ' + s +
-    (boss ? ' · ' + rg.n + ' 마지막 스테이지(' + rg.lab + ') 보스' + (CVS.lv === 10 ? ' · 레벨 10 은 영웅 보스' : '') : ' · 4스테이지는 지역 무관 (모든 지역 동일)') +
-    (CVS.am ? ' · 마나석 +' + Math.round(CV_AMERIA_MANA*100) + '% (아메리아)' : '');
-  document.getElementById('cv-h-rune').textContent = '1판 소모 에너지 ' + CV_E_RUNE[CVS.rf - 1] + ' · 문양 종류는 던전마다 1종 · 룬 제작 문양 4성 4개 / 5성 15개 / 6성 40개';
-  document.getElementById('cv-h-arti').textContent = '1판 소모 에너지 ' + CV_E_ARTI[CVS.af - 1] + ' · 아티팩트 1개 제작 = 유물 파편 100개';
+  cvBuildCtl();
+  const boss = CVS.st === 'boss', rg = cvReg(), bx = CV_BOXES.find(b => b.k === CVS.box);
+  const sE = boss ? CV.boss[CVS.rg][CVS.lv - 1].E : CV_E_SCN[CVS.lv - 1];
+  document.getElementById('cv-ptitle').textContent = '품목별 환산 · ' + bx.n;
+  document.getElementById('cv-hint').innerHTML =
+    '시나리오 1판 소모 에너지 <b>' + sE + '</b> · ' +
+      (boss ? rg.n + ' 마지막 스테이지(' + rg.lab + ') 보스' + (CVS.lv === 10 ? ' · 영웅 보스' : '') : '4스테이지 (모든 지역 동일)') +
+      (CVS.am ? ' · 마나석 +' + Math.round(CV_AMERIA_MANA * 100) + '% 적용 중' : '') +
+    '<br>룬 던전 1판 <b>' + CV_E_RUNE[CVS.rf - 1] + '</b> · 아티팩트 던전 1판 <b>' + CV_E_ARTI[CVS.af - 1] + '</b> · 속성 던전 1판 <b>' + CV_E_ATTR[CVS.at - 1] + '</b> 에너지' +
+    '<br>문양 종류는 던전마다 1종 · 룬 제작 문양 4성 4개 / 5성 15개 / 6성 40개 · 아티팩트 1개 제작 = 유물 파편 100개';
   cvRenderResult();
   const f = document.getElementById('cv-foot');
   if (f) f.innerHTML =
+    '· 상자 탭(미지 / 신비 / 전설)마다 시나리오 레벨, 룬 · 아티팩트 · 속성 던전 층, 상자 지급량을 따로 저장합니다. 4스테이지 / 보스, 지역, 아메리아는 세 탭이 함께 씁니다.<br>' +
     '· 시나리오 수치는 1판 <b>기대값</b>이라 실제로는 편차가 있습니다. 기본 재화는 스테이지 보상표, 소환서는 메인 + 서브2 보상을 합산한 값입니다.<br>' +
     '· 보스 스테이지는 선택한 지역의 <b>마지막 스테이지</b> 기준입니다 (숨겨진 유적 · 피라타 섬 · 데빌스라커 10스테이지, 그 외 13스테이지). 레벨 10 은 영웅 보스라 에너지 7, 마법가루 · 소환서 보상표도 영웅 보스 기준입니다.<br>' +
-    '· 아메리아 축복 체크 시 <b>마나석만 +' + Math.round(CV_AMERIA_MANA*100) + '%</b> 가산합니다 (server_const 의 AMERIA_INCREASE_RATE_BATTLE_REWARD_MANA = 200000, 100만 = 100% 기준으로 해석).<br>' +
+    '· 아메리아 축복 체크 시 <b>마나석만 +' + Math.round(CV_AMERIA_MANA * 100) + '%</b> 가산합니다 (server_const 의 AMERIA_INCREASE_RATE_BATTLE_REWARD_MANA = 200000, 100만 = 100% 기준으로 해석).<br>' +
     '· 룬 문양 / 유물 파편은 룬 던전·아티팩트 던전 1판(메인 1 + 서브1 75%×2)에서 나온 룬·아티팩트를 전부 분해한다고 가정했습니다. 효과 재료와 스킬석은 제외했습니다.<br>' +
-    '· 판수가 "불가"인 칸은 해당 레벨 / 스테이지의 보상표에 그 아이템이 없는 경우입니다.';
+    '· 속성 정수는 마력의 던전 1판(메인 1 + 서브1 50%×2 + 서브2 50%×1)의 기대값입니다. 하급 5개 → 중급 1개, 중급 5개 → 상급 1개, 상급 5개 → 최상급 1개로 환산해 중급 · 상급 · 최상급 판수에 반영했습니다.<br>' +
+    '· 판수가 "불가"인 칸은 해당 레벨 / 스테이지 / 층의 보상표에 그 아이템이 없는 경우입니다.';
 }
 cvRender();
+(function(){   // 고정 패널이 상단 고정 헤더 아래에 놓이도록 높이를 측정
+  const fit = () => { const hd = document.querySelector('header'); if (hd) document.documentElement.style.setProperty('--cv-top', (hd.offsetHeight + 12) + 'px'); };
+  fit(); window.addEventListener('resize', fit);
+})();
 
 // ─────────────────────────────────────────────────────────
 // PROB TABLE — MULTI-CELL SELECT / COPY / PASTE
